@@ -1,0 +1,7 @@
+public enum PAGENAME
+{
+    GAMEPAGE,
+    BUFFCARDSPAGE,
+    PAUSEPAGE,
+    FINISHPAGE
+}
