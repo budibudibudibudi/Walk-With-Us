@@ -11,6 +11,6 @@ public class FinishPage : Page
     private void Start()
     {
         int currentLevel = Funcs.GetCurrentLevel.Invoke();
-        nextBTN.onClick.AddListener(() => SceneManager.LoadScene($"LV{currentLevel+1}"));
+        nextBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.NEXTLEVEL));
     }
 }

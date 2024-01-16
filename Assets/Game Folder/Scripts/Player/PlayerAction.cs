@@ -17,9 +17,7 @@ public class PlayerAction : MonoBehaviour
     {
         Actions.AddSkillToPlayer -= AddSkill;
         Actions.OnStateChange -= OnStateChange;
-
     }
-
     private void OnStateChange(GAMESTATE gAMESTATE)
     {
         switch (gAMESTATE)
@@ -43,5 +41,13 @@ public class PlayerAction : MonoBehaviour
     private void AddSkill(Skill skill)
     {
         listSkillOfPlayer.Add(skill);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Finish")
+        {
+            Actions.OnStateChange?.Invoke(GAMESTATE.GAMEOVER);
+        }
     }
 }

@@ -1,24 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
+[ExecuteInEditMode]
 public class Test : MonoBehaviour
 {
-}
-#if UNITY_EDITOR
-[CustomEditor(typeof(Test))]
-public class TestEditor:Editor
-{
-    public override void OnInspectorGUI()
+    private void Start()
     {
-        base.OnInspectorGUI();
-        Test test = (Test)target;
-
-        if (GUILayout.Button("TestButton"))
-        {
-            test.gameObject.AddComponent<Rigidbody>();
-        }
+        Debug.Log("Start");
+    }
+    private void Update()
+    {
+        Debug.Log("Update");
     }
 }
-#endif
