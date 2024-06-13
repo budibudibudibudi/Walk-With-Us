@@ -127,6 +127,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 849935196282546661}
     m_Modifications:
+    - target: {fileID: 192287500665578859, guid: f533e563b430f014486fe2d7de014162, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1.846
+      objectReference: {fileID: 0}
+    - target: {fileID: 192287500665578859, guid: f533e563b430f014486fe2d7de014162, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 132.31
+      objectReference: {fileID: 0}
     - target: {fileID: 192287500665578868, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_VerticalScrollbar
       value: 
@@ -135,13 +143,21 @@ PrefabInstance:
       propertyPath: m_HorizontalScrollbar
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 192287502070140874, guid: f533e563b430f014486fe2d7de014162, type: 3}
+      propertyPath: m_Spacing
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 192287502070140874, guid: f533e563b430f014486fe2d7de014162, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 192287502538570240, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_Name
       value: BuffCardsPage
       objectReference: {fileID: 0}
     - target: {fileID: 192287502538570240, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 192287502538570241, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_Pivot.x
@@ -229,6 +245,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f533e563b430f014486fe2d7de014162, type: 3}
+--- !u!1 &849935196174418072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 192287502070140872, guid: f533e563b430f014486fe2d7de014162, type: 3}
+  m_PrefabInstance: {fileID: 675742220249681744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &849935196970140343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849935196174418072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!224 &849935196780868945 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 192287502538570241, guid: f533e563b430f014486fe2d7de014162, type: 3}
