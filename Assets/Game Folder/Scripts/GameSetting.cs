@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,31 +7,32 @@ using UnityEngine.SceneManagement;
 public class GameSetting : MonoBehaviour
 {
     [SerializeField] private GAMESTATE currentState;
-    [SerializeField] private Level[] levelManager;
+    [SerializeField] private LevelManager levelManager;
     [SerializeField] private int currentLevel;
     [SerializeField] private Skill[] listSkillInGame;
+    [SerializeField] private float Timer;
 
-    private void Start()
-    {
-        OnStateChange(currentState);
-
-        DontDestroyOnLoad(gameObject);
-    }
     private void OnEnable()
     {
         Actions.OnStateChange += OnStateChange;
         Funcs.GetAllSkillCurrentLevel += GetListSkillCurrentLevel;
         Funcs.GetCurrentLevel += GetCurrentLevel;
+        Funcs.GetTimer += GetTimer;
         Actions.AddSkillToPlayer += SaveSkill;
     }
-
 
     private void OnDisable()
     {
         Actions.OnStateChange -= OnStateChange;
         Funcs.GetAllSkillCurrentLevel -= GetListSkillCurrentLevel;
         Funcs.GetCurrentLevel -= GetCurrentLevel;
+        Funcs.GetTimer -= GetTimer;
         Actions.AddSkillToPlayer -= SaveSkill;
+    }
+
+    private float GetTimer()
+    {
+        return Timer;
     }
     private void SaveSkill(Skill obj)
     {
@@ -60,7 +62,7 @@ public class GameSetting : MonoBehaviour
     }
     private Skill[] GetListSkillCurrentLevel()
     {
-        return levelManager[currentLevel].listSkill;
+        return levelManager.GetLevelDatas()[currentLevel].listSkill;
     }
 
     private void OnStateChange(GAMESTATE gAMESTATE)
@@ -68,6 +70,7 @@ public class GameSetting : MonoBehaviour
         switch (gAMESTATE)
         {
             case GAMESTATE.PLAY:
+                StartCoroutine(StartTimer());
                 Time.timeScale = 1;
                 Cursor.lockState = CursorLockMode.Locked;
                 Actions.OnPageChange?.Invoke(PAGENAME.GAMEPAGE);
@@ -79,7 +82,7 @@ public class GameSetting : MonoBehaviour
                 break;
             case GAMESTATE.BUFFING:
                 Cursor.lockState = CursorLockMode.None;
-                bool isPlayerHasSkill = CheckSkillPlayer(levelManager[currentLevel].listSkill);
+                bool isPlayerHasSkill = CheckSkillPlayer(levelManager.GetLevelDatas()[currentLevel].listSkill);
                 if (!isPlayerHasSkill)
                 {
                     Time.timeScale = 0;
@@ -87,7 +90,7 @@ public class GameSetting : MonoBehaviour
                 }
                 else
                 {
-                    foreach (var item in levelManager[currentLevel].listSkill)
+                    foreach (var item in levelManager.GetLevelDatas()[currentLevel].listSkill)
                     {
                         Actions.AddSkillToPlayer?.Invoke(item);
                     }
@@ -131,6 +134,17 @@ public class GameSetting : MonoBehaviour
                 break;
         }
     }
+
+    private IEnumerator StartTimer()
+    {
+        while (currentState == GAMESTATE.PLAY)
+        {
+            Timer += Time.deltaTime;
+            Actions.OnTimerRun?.Invoke(Timer);
+            yield return null;
+        }
+    }
+
     private bool CheckSkillPlayer(Skill[] skills)
     {
         List<string> listskill = JsonHelper.ReadListFromJSON<string>("Player Skill List");

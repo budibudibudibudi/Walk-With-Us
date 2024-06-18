@@ -1,0 +1,22 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MenuCanvasManager : CanvasManager
+{
+    private void OnEnable()
+    {
+        Actions.OnPageChange += OnPageChange;
+    }
+    private void OnDisable()
+    {
+        Actions.OnPageChange -= OnPageChange;
+
+    }
+
+    private void OnPageChange(PAGENAME pAGENAME)
+    {
+        SetPage(pAGENAME);
+    }
+}
