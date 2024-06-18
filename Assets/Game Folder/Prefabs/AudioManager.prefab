@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5337740345116964417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5337740345116964419}
+  - component: {fileID: 5337740345116964416}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5337740345116964419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337740345116964417}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5337740345116964416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337740345116964417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c36b2be4b23fcc4fbc8e3d5fcd5962e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 4603306875254376262, guid: 5e0a6667519528b44becc5ceb8cedcea, type: 2}
+  sfxMixer: {fileID: -740457408788853367, guid: 5e0a6667519528b44becc5ceb8cedcea, type: 2}
+  sounds:
+  - audiotype: 0
+    source: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 9eb9be66286031548b283c83fa34adf0, type: 3}
+    clipname: FootStep
+    isloop: 0
+    playonawake: 0
+    volume: 1
+  - audiotype: 1
+    source: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 8a5b16410f41de849b9944a285659011, type: 3}
+    clipname: Loading
+    isloop: 1
+    playonawake: 0
+    volume: 1
+  - audiotype: 0
+    source: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 7d1fbc4aa7b61e54a8a39b6cf8992f79, type: 3}
+    clipname: Failure
+    isloop: 0
+    playonawake: 0
+    volume: 1
+  - audiotype: 0
+    source: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: b57fb5f20263557438552469a989576f, type: 3}
+    clipname: Game
+    isloop: 0
+    playonawake: 0
+    volume: 1
+  - audiotype: 0
+    source: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: b2f1bb0f92056124298904546a987fc9, type: 3}
+    clipname: Jump
+    isloop: 0
+    playonawake: 0
+    volume: 1
+  - audiotype: 0
+    source: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: fdb8820854238ce4a99b6366b865c31c, type: 3}
+    clipname: Finish
+    isloop: 0
+    playonawake: 0
+    volume: 1
+  - audiotype: 0
+    source: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: dd68eada0725e8b4ca28d98872f67f65, type: 3}
+    clipname: Pickup
+    isloop: 0
+    playonawake: 0
+    volume: 1
+  - audiotype: 0
+    source: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: abb114789668f9a49929cce83f341239, type: 3}
+    clipname: Star
+    isloop: 0
+    playonawake: 0
+    volume: 1

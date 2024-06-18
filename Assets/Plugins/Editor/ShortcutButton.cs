@@ -23,6 +23,7 @@ public class ShortcutButton : MonoBehaviour
         }
         if (!targetScene.isLoaded)
         {
+            EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
             EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
         }
     }

@@ -6,12 +6,11 @@ using UnityEngine.UI;
 
 public class MenuPage : Page
 {
-    [SerializeField] private Button playBTN, optionBTN, exitBTN;
-
-    private void Start()
+    [SerializeField] private Button playBTN,settingBTN,levelBTN;
+    protected override void Start()
     {
-        playBTN.onClick.AddListener(() => SceneManager.LoadScene("LV1"));
-        optionBTN.onClick.AddListener(()=>Actions.OnPageChange?.Invoke(PAGENAME.OPTIONSPAGE));
-        exitBTN.onClick.AddListener(()=>Application.Quit());
+        playBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.PLAY));
+        settingBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.OPTIONSPAGE));
+        levelBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.LEVELPAGE));
     }
 }

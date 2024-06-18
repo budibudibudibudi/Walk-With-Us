@@ -7,15 +7,15 @@ public class MenuCanvasManager : CanvasManager
 {
     private void OnEnable()
     {
-        Actions.OnPageChange += OnChangePage;
+        Actions.OnPageChange += OnPageChange;
     }
     private void OnDisable()
     {
-        Actions.OnPageChange -= OnChangePage;
+        Actions.OnPageChange -= OnPageChange;
 
     }
 
-    private void OnChangePage(PAGENAME pAGENAME)
+    private void OnPageChange(PAGENAME pAGENAME)
     {
         SetPage(pAGENAME);
     }
