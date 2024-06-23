@@ -4401,6 +4401,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23bd600a3424d9e44ac451d447977c93, type: 3}
+--- !u!1 &727218381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727218382}
+  - component: {fileID: 727218383}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &727218382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727218381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2797151940149884519}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &727218383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727218381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68ddc2d5fa27294fbbe9cc0cdbe3e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelDatas:
+  - level: 0
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    timer3Star: 0
+    timer2Star: 0
+    timer1Star: 0
+    listSkill: []
 --- !u!1001 &728817712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16008,6 +16061,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 24.86853
       objectReference: {fileID: 0}
+    - target: {fileID: 849935196174418073, guid: c1761bc95f3ae7440933a01afc154322, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 849935196282546661, guid: c1761bc95f3ae7440933a01afc154322, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -16243,6 +16300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dad036716edeb88448e16425dcd171ae, type: 3}
+--- !u!4 &2797151940149884519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2797151940662038193, guid: dad036716edeb88448e16425dcd171ae, type: 3}
+  m_PrefabInstance: {fileID: 2797151940149884518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3028411973840818529
 PrefabInstance:
   m_ObjectHideFlags: 0
