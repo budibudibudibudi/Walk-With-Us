@@ -1,3 +1,5 @@
+using System;
+
 [System.Serializable]
 public class LevelData
 {
@@ -5,8 +7,10 @@ public class LevelData
     public bool isClear;
     public bool isUnlocked;
     public int completedStar;
-    public float timer3Star;
-    public float timer2Star;
-    public float timer1Star;
+    public Quest[] listQuest;
     public Skill[] listSkill;
+
+    public void CheckingQuest()
+    {
+    }
 }

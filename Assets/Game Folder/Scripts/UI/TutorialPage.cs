@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TutorialPage : Page
 {
     [SerializeField] private Button closeBTN;
-    private void Start()
+    protected override void Start()
     {
         closeBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.BUFFING));
     }

@@ -4,5 +4,6 @@ public enum GAMESTATE
     PAUSE,
     BUFFING,
     GAMEOVER,
-    NEXTLEVEL
+    NEXTLEVEL,
+    MENU
 }

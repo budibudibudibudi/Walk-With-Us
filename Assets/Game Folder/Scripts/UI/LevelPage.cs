@@ -10,7 +10,7 @@ public class LevelPage : Page
 
     [SerializeField] private Button backBTN;
 
-    private void Start()
+    protected override void Start()
     {
         LevelData[] datas = Funcs.GetLevelDatas();
         foreach (var item in datas)

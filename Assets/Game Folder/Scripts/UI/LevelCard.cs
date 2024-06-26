@@ -25,7 +25,7 @@ public class LevelCard : MonoBehaviour
                 starHolders[i].sprite = null;
             }
         }
-        GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene($"LV{lv}"));
+        GetComponent<Button>().onClick.AddListener(() => Actions.SelectedLevel?.Invoke(lv));
         GetComponent<Button>().interactable = isUnlocked;
     }
 }
