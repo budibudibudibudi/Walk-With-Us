@@ -7,7 +7,6 @@ using UnityEngine;
 public class Quest:ScriptableObject
 {
     public SubQuest[] listSubQuest;
-    public bool allSubquestComplete;
 
     public virtual void Init()
     {
@@ -16,7 +15,6 @@ public class Quest:ScriptableObject
 
     protected virtual void OnReportedQuest(QuestID iD,int value)
     {
-        int temp = 0;
         foreach (var subQuest in listSubQuest)
         {
             if (subQuest.questID == iD)
@@ -60,11 +58,6 @@ public class Quest:ScriptableObject
                         break;
                 }
             }
-            if (subQuest.Complete) temp++;
-        }
-        if (listSubQuest.Length == temp)
-        {
-            allSubquestComplete = true;
         }
     }
 }
