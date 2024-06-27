@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Quest",menuName ="Quest")]
 public class Quest:ScriptableObject
 {
-    [SerializeField] protected SubQuest[] listQuest;
+    public SubQuest[] listSubQuest;
+    public bool allSubquestComplete;
 
     public virtual void Init()
     {
@@ -15,22 +16,55 @@ public class Quest:ScriptableObject
 
     protected virtual void OnReportedQuest(QuestID iD,int value)
     {
-        switch (iD)
+        int temp = 0;
+        foreach (var subQuest in listSubQuest)
         {
-            case QuestID.Timer:
-                break;
-            case QuestID.FindObject:
-                break;
-            case QuestID.ClearTile:
-                break;
-            case QuestID.HitWater:
-                break;
-            case QuestID.WalkToMidRoad:
-                break;
-            case QuestID.Fall:
-                break;
-            default:
-                break;
+            if (subQuest.questID == iD)
+            {
+                switch (iD)
+                {
+                    case QuestID.Timer:
+                        if (subQuest.amount > value)
+                        {
+                            subQuest.Complete = true;
+                        }
+                        break;
+                    case QuestID.FindObject:
+                        if (value >= subQuest.amount)
+                        {
+                            subQuest.Complete = true;
+                        }
+                        break;
+                    case QuestID.ClearTile:
+                        if (value == subQuest.amount)
+                        {
+                            subQuest.Complete = true;
+                        }
+                        break;
+                    case QuestID.HitWater:
+                        if (value < subQuest.amount)
+                        {
+                            subQuest.Complete = true;
+                        }
+                        break;
+                    case QuestID.NotWalkToMidRoad:
+                        subQuest.Complete = true;
+                        break;
+                    case QuestID.Fall:
+                        if (value < subQuest.amount)
+                        {
+                            subQuest.Complete = true;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (subQuest.Complete) temp++;
+        }
+        if (listSubQuest.Length == temp)
+        {
+            allSubquestComplete = true;
         }
     }
 }

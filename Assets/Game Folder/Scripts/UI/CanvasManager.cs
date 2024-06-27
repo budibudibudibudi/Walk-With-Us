@@ -7,6 +7,10 @@ public class CanvasManager : MonoBehaviour
 {
     [SerializeField] private Page[] listPage;
 
+    private void Start()
+    {
+        listPage = GetComponentsInChildren<Page>(true);   
+    }
     public void SetPage(PAGENAME pageName)
     {
         foreach (var item in listPage)

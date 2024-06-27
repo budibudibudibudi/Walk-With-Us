@@ -4,6 +4,7 @@
     FindObject = 1,
     ClearTile = 2,
     HitWater = 3,
-    WalkToMidRoad = 4,
+    NotWalkToMidRoad = 4,
     Fall = 5,
+    NONE = 99
 }

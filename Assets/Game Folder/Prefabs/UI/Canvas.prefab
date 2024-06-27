@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1616309103531047623, guid: 4d0e64face8808144b34a0723e850178, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -47.297607
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1616309103767559736, guid: 4d0e64face8808144b34a0723e850178, type: 3}
       propertyPath: m_Name
@@ -270,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192287502070140873, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -1701.1259
       objectReference: {fileID: 0}
     - target: {fileID: 192287502070140874, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_Spacing
@@ -286,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192287502538570240, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 192287502538570241, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_Pivot.x

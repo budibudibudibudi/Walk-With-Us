@@ -92,7 +92,8 @@ public class GameManager : MonoBehaviour
     }
     private Skill[] GetListSkillCurrentLevel()
     {
-        return levelManager.GetLevelDatas()[currentLevel].listSkill;
+        LevelData levelData = Array.Find(GetLevelManager().GetLevelDatas(),l=>l.level == currentLevel);
+        return levelData.listSkill;
     }
 
     private void OnStateChange(GAMESTATE gAMESTATE)
@@ -113,7 +114,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GAMESTATE.BUFFING:
                 Cursor.lockState = CursorLockMode.None;
-                bool isPlayerHasSkill = CheckSkillPlayer(levelManager.GetLevelDatas()[currentLevel].listSkill);
+                bool isPlayerHasSkill = CheckSkillPlayer(GetListSkillCurrentLevel());
                 if (!isPlayerHasSkill)
                 {
                     Time.timeScale = 0;
@@ -121,7 +122,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    foreach (var item in levelManager.GetLevelDatas()[currentLevel].listSkill)
+                    foreach (var item in GetListSkillCurrentLevel())
                     {
                         Actions.AddSkillToPlayer?.Invoke(item);
                     }

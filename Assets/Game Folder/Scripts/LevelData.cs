@@ -10,7 +10,4 @@ public class LevelData
     public Quest[] listQuest;
     public Skill[] listSkill;
 
-    public void CheckingQuest()
-    {
-    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,10 @@ public class LevelManager : MonoBehaviour
     {
         Funcs.GetLevelDatas += GetLevelDatas;
     }
+
     private void OnDisable()
     {
         Funcs.GetLevelDatas -= GetLevelDatas;
-
     }
+
 }
