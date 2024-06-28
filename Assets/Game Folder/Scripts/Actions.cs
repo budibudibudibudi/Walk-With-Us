@@ -11,4 +11,5 @@ public static class Actions
     public static Action ThrowGarbage;
     public static Action<QuestID,int> ReportQuest;
     public static Action<int> SelectedLevel;
+    public static Action<LevelData> unlockNextLevel;
 }

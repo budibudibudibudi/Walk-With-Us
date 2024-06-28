@@ -999,7 +999,7 @@ MonoBehaviour:
   - {fileID: 5356518484786678968}
   - {fileID: 5114297400058737246}
   - {fileID: 4169610949944985786}
-  starSprite: {fileID: 0}
+  starSprite: {fileID: 21300000, guid: a0d84d0e7aa337f4ea42a4017e3384b5, type: 3}
 --- !u!1 &8255994039781319211
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,5 +23,6 @@ public class GameSetting : MonoBehaviour
     private void RefreshTrashAmount()
     {
         trashAmount = GameObject.FindGameObjectsWithTag("Trash").Length;
+        Actions.ReportQuest?.Invoke(QuestID.ClearTile, trashAmount);
     }
 }

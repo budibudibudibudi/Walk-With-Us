@@ -1030,15 +1030,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
       propertyPath: levelDatas.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
       propertyPath: levelDatas.Array.data[0].level
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
+      propertyPath: levelDatas.Array.data[1].level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
       propertyPath: levelDatas.Array.data[0].isUnlocked
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
+      propertyPath: levelDatas.Array.data[1].isUnlocked
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
       propertyPath: levelDatas.Array.data[0].listQuest.Array.size
@@ -1049,21 +1057,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
+      propertyPath: levelDatas.Array.data[1].listQuest.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
+      propertyPath: levelDatas.Array.data[1].listSkill.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
       propertyPath: levelDatas.Array.data[0].listQuest.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 7020749509570d14d8a8bdd429ae791d, type: 2}
     - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
       propertyPath: levelDatas.Array.data[0].listQuest.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: d77f67846b06b5e42aae8f19de77c6f2, type: 2}
+      objectReference: {fileID: 11400000, guid: 50fa35076299ba142b2a08eccaf2d3da, type: 2}
     - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
       propertyPath: levelDatas.Array.data[0].listQuest.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 2e8ea84da1e98bf46a1789309dc80169, type: 2}
+      objectReference: {fileID: 11400000, guid: 50fa35076299ba142b2a08eccaf2d3da, type: 2}
     - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
       propertyPath: levelDatas.Array.data[0].listSkill.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: cf000f51c99c1de418b6727f0b2f5167, type: 2}
+    - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
+      propertyPath: levelDatas.Array.data[1].listQuest.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7020749509570d14d8a8bdd429ae791d, type: 2}
+    - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
+      propertyPath: levelDatas.Array.data[1].listQuest.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: d77f67846b06b5e42aae8f19de77c6f2, type: 2}
+    - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
+      propertyPath: levelDatas.Array.data[1].listQuest.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e8ea84da1e98bf46a1789309dc80169, type: 2}
+    - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
+      propertyPath: levelDatas.Array.data[1].listSkill.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ec3c9b0a2aa14874a9c938192f660c96, type: 2}
     - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
       propertyPath: levelDatas.Array.data[0].listQuest.Array.data[1].questID
       value: 2

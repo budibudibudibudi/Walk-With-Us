@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,13 +15,19 @@ public class FinishPage : Page
 
     protected override void Start()
     {
+        int star = Funcs.GetCompletedStar();
         int currentLevel = Funcs.GetCurrentLevel.Invoke();
-        nextBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.NEXTLEVEL));
+        nextBTN.onClick.AddListener(() => {
+            LevelData levelData = Array.Find(Funcs.GetLevelDatas(),l=>l.level == currentLevel);
+            if (levelData.isClear)
+            {
+                Actions.OnStateChange?.Invoke(GAMESTATE.NEXTLEVEL);
+            }
+            });
         levelBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.LEVELPAGE));
         retryBTN.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
         timerText.text = Funcs.GetTimer().ToString("F2");
 
-        int star = Funcs.GetLevelDatas()[Funcs.GetCurrentLevel()].completedStar;
 
         for (int i = 0; i < star; i++)
         {
@@ -31,7 +38,7 @@ public class FinishPage : Page
             }
             catch 
             {
-                starsHolder[i].sprite = null;
+                continue;
             }
         }
     }

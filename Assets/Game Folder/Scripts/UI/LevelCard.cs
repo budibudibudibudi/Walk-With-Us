@@ -11,10 +11,10 @@ public class LevelCard : MonoBehaviour
     [SerializeField] private Image[] starHolders;
     [SerializeField] private Sprite starImg;
 
-    public void SetupCard(int lv,int ownedStars,bool isUnlocked)
+    public void SetupCard(LevelData levelData)
     {
-        levelText.text = lv.ToString();
-        for (int i = 0; i < ownedStars; i++)
+        levelText.text = levelData.level.ToString();
+        for (int i = 0; i < levelData.completedStar; i++)
         {
             try
             {
@@ -25,7 +25,7 @@ public class LevelCard : MonoBehaviour
                 starHolders[i].sprite = null;
             }
         }
-        GetComponent<Button>().onClick.AddListener(() => Actions.SelectedLevel?.Invoke(lv));
-        GetComponent<Button>().interactable = isUnlocked;
+        GetComponent<Button>().onClick.AddListener(() => Actions.SelectedLevel?.Invoke(levelData.level));
+        GetComponent<Button>().interactable = levelData.isUnlocked;
     }
 }

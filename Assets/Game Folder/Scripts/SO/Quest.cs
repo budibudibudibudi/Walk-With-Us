@@ -7,6 +7,22 @@ using UnityEngine;
 public class Quest:ScriptableObject
 {
     public SubQuest[] listSubQuest;
+    public bool Complete()
+    {
+        int temp = 0;
+        foreach (SubQuest subQuest in listSubQuest)
+        {
+            if (subQuest.Complete)
+            {
+                temp++;
+            }
+        }
+        if (temp == listSubQuest.Length)
+        {
+            return true;
+        }
+        return false;   
+    }
 
     public virtual void Init()
     {

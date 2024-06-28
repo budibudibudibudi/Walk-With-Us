@@ -16,7 +16,7 @@ public class LevelPage : Page
         foreach (var item in datas)
         {
             GameObject go = Instantiate(levelCardPrefab, contentParent);
-            go.GetComponent<LevelCard>().SetupCard(item.level, item.completedStar,item.isUnlocked);
+            go.GetComponent<LevelCard>().SetupCard(item);
         }
         backBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.MENUPAGE));
     }

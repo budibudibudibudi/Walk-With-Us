@@ -12,4 +12,6 @@ public static class Funcs
     public static Func<LevelManager> GetLevelManager;
     public static Func<GAMESTATE> GetGameState;
     public static Func<int> GetTrashAmountInScene;
+    public static Func<int> GetCompletedStar;
+    public static Func<int> GetTrashScene;
 }

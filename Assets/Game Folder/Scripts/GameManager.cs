@@ -26,16 +26,6 @@ public class GameManager : MonoBehaviour
     {
         return currentState;
     }
-    private LevelManager levelManager;
-
-    private LevelManager GetLevelManager()
-    {
-        if (levelManager == null)
-        {
-            levelManager = GetComponentInChildren<LevelManager>();
-        }
-        return levelManager;
-    }
     [SerializeField] private int currentLevel;
     [SerializeField] private float Timer;
     private void OnEnable()
@@ -45,7 +35,6 @@ public class GameManager : MonoBehaviour
         Funcs.GetCurrentLevel += GetCurrentLevel;
         Funcs.GetTimer += GetTimer;
         Funcs.GetGameState += GetGamestate;
-        Funcs.GetLevelManager += GetLevelManager;
         Actions.AddSkillToPlayer += SaveSkill;
         Actions.SelectedLevel += GotoLevel;
     }
@@ -92,13 +81,14 @@ public class GameManager : MonoBehaviour
     }
     private Skill[] GetListSkillCurrentLevel()
     {
-        LevelData levelData = Array.Find(GetLevelManager().GetLevelDatas(),l=>l.level == currentLevel);
+        LevelData levelData = Array.Find(Funcs.GetLevelDatas(),l=>l.level == currentLevel);
         return levelData.listSkill;
     }
 
     private void OnStateChange(GAMESTATE gAMESTATE)
     {
-        switch (gAMESTATE)
+        currentState = gAMESTATE;
+        switch (currentState)
         {
             case GAMESTATE.PLAY:
                 Timer = 0;
@@ -132,6 +122,8 @@ public class GameManager : MonoBehaviour
             case GAMESTATE.GAMEOVER:
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
+                Actions.ReportQuest(QuestID.Timer, (int)Timer);
+                StarCalculation();
                 Actions.OnPageChange?.Invoke(PAGENAME.FINISHPAGE);
                 break;
             case GAMESTATE.NEXTLEVEL:
@@ -170,11 +162,58 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void StarCalculation()
+    {
+        LevelData levelData = Array.Find(Funcs.GetLevelDatas(), l => l.level == currentLevel);
+        int star = Funcs.GetCompletedStar();
+        if (star > 0)
+            levelData.isClear = true;
+
+        SaveLevelData(levelData);
+    }
+
+    private void SaveLevelData(LevelData levelData)
+    {
+        List<SavedLevelData> listLevelData = LoadListLevelData();
+        SavedLevelData currentLevelData = null;
+        int nextLevel = currentLevel++;
+        if (listLevelData == null || listLevelData.Count == 0)
+        {
+            currentLevelData = new SavedLevelData();
+        }
+        else
+        {
+            currentLevelData = Array.Find(listLevelData.ToArray(), c => c.level == levelData.level);
+            if (currentLevelData == null)
+            {
+                currentLevelData = new();
+            }
+        }
+        currentLevelData.level = levelData.level;
+        currentLevelData.isClear = levelData.isClear;
+        currentLevelData.isUnlocked = levelData.isUnlocked;
+        currentLevelData.completedStar = levelData.completedStar;
+        JsonHelper.SaveToJSON(currentLevelData, "LevelData");
+        if (levelData.isClear)
+        {
+            LevelData nextLevelData = Array.Find(Funcs.GetLevelDatas(), n => n.level == nextLevel);
+            if (nextLevelData != null)
+            {
+                Actions.unlockNextLevel(nextLevelData);
+            }
+        }
+    }
+    private List<SavedLevelData> LoadListLevelData()
+    {
+        List<SavedLevelData> listLevelData = JsonHelper.ReadListFromJSON<SavedLevelData>("ListLevelData");
+        return listLevelData;
+    }
     private IEnumerator StartTimer()
     {
         while (currentState == GAMESTATE.PLAY)
         {
             Timer += Time.deltaTime;
+            Debug.Log(Timer);
             Actions.OnTimerRun?.Invoke(Timer);
             yield return null;
         }

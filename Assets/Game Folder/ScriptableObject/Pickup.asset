@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f42e7a31ead3b45a1151d13c7b24ed, type: 3}
-  m_Name: Jump
+  m_Script: {fileID: 11500000, guid: b8c39ff2aee84b441b5a7cdf6e3cc286, type: 3}
+  m_Name: Pickup
   m_EditorClassIdentifier: 
-  skillName: Jump
-  Icon: {fileID: 21300000, guid: 815ddbf38ec7be44f891492bff5d3b55, type: 3}
-  Description: Player can jump
+  skillName: Grab
+  Icon: {fileID: 21300000, guid: 36e26766e026e004c96cefdc7fda2291, type: 3}
+  Description: Grab trash and throw it
