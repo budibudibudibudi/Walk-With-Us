@@ -136,7 +136,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _MaskClipValue: 0.5
-    - _Metallic: 0
+    - _Metallic: 0.51
     - _NormalScale: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -144,7 +144,7 @@ Material:
     - _ReceiveShadows: 1
     - _ShoreDepth: -6.35
     - _ShoreFalloff: -10
-    - _Smoothness: 0.9
+    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _Specular: 0.1
     - _SpecularHighlights: 1
@@ -161,8 +161,8 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.3833036, g: 0.88478243, b: 0.9150943, a: 1}
+    - _Color: {r: 0.38330358, g: 0.88478243, b: 0.9150943, a: 1}
     - _Color0: {r: 0, g: 0.6749488, b: 0.8088235, a: 0}
     - _Color1: {r: 0, g: 0.048731543, b: 0.22794023, a: 0}
     - _DeepColor: {r: 0.2511125, g: 0.7187613, b: 0.9339623, a: 1}
