@@ -42,4 +42,8 @@ public class PlayerInventory : MonoBehaviour
             inventory.Add(obj);
         }
     }
+    public void AddInventorySlot(int amount)
+    {
+        inventorySlot += amount;
+    }
 }

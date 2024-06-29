@@ -7,6 +7,8 @@ public class PickupSkill : Skill
 {
     public override IEnumerator UseSkill()
     {
+        if (Player.GetComponent<PlayerInventory>() == null)
+            Player.AddComponent<PlayerInventory>();
         while (true)
         {
             if (Input.GetMouseButtonDown(0))

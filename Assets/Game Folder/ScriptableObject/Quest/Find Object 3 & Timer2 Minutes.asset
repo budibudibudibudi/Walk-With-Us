@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f42e7a31ead3b45a1151d13c7b24ed, type: 3}
-  m_Name: Jump
+  m_Script: {fileID: 11500000, guid: 36f03f707aa2dd94dbdebfc66f1572a7, type: 3}
+  m_Name: Find Object 3 & Timer2 Minutes
   m_EditorClassIdentifier: 
-  skillName: Jump
-  Icon: {fileID: 21300000, guid: 815ddbf38ec7be44f891492bff5d3b55, type: 3}
-  Description: Player can jump
-  addPower: 0.3
+  listSubQuest:
+  - questID: 1
+    amount: 3
+    Complete: 0
+  - questID: 0
+    amount: 120
+    Complete: 0

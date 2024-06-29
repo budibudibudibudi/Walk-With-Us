@@ -213,7 +213,6 @@ public class GameManager : MonoBehaviour
         while (currentState == GAMESTATE.PLAY)
         {
             Timer += Time.deltaTime;
-            Debug.Log(Timer);
             Actions.OnTimerRun?.Invoke(Timer);
             yield return null;
         }
@@ -223,6 +222,10 @@ public class GameManager : MonoBehaviour
     private void GotoLevel(int value)
     {
         currentLevel = value;
+        if (currentLevel > 1)
+        {
+            Actions.OnPageChange?.Invoke(PAGENAME.BUFFCARDSPAGE);
+        }
         SceneManager.LoadScene($"LV{currentLevel}");
     }
 

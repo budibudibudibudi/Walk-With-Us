@@ -92,4 +92,147 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68ddc2d5fa27294fbbe9cc0cdbe3e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDatas: []
+  levelDatas:
+  - level: 1
+    description: Bantu Tuhet untuk mencapai rumahnya!
+    isClear: 0
+    isUnlocked: 1
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: 7020749509570d14d8a8bdd429ae791d, type: 2}
+    - {fileID: 11400000, guid: 50fa35076299ba142b2a08eccaf2d3da, type: 2}
+    - {fileID: 11400000, guid: 50fa35076299ba142b2a08eccaf2d3da, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: cf000f51c99c1de418b6727f0b2f5167, type: 2}
+  - level: 2
+    description: 
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: 7020749509570d14d8a8bdd429ae791d, type: 2}
+    - {fileID: 11400000, guid: d77f67846b06b5e42aae8f19de77c6f2, type: 2}
+    - {fileID: 11400000, guid: 2e8ea84da1e98bf46a1789309dc80169, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: ec3c9b0a2aa14874a9c938192f660c96, type: 2}
+  - level: 3
+    description: Bantu Tuhet untuk menemukan kunci yang tertinggal dan pergi ke taman
+      perkotaan!
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: 7020749509570d14d8a8bdd429ae791d, type: 2}
+    - {fileID: 11400000, guid: 6e6ddfb2eba99634ba196bb2a2598f75, type: 2}
+    - {fileID: 11400000, guid: cd00a361233a5464c8e7c469bc16c0b6, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: 3b07f12398cc9994cafb85fa40ca5eb4, type: 2}
+    - {fileID: 11400000, guid: f7f13d93fb1ac9444af2c0a13c0269d8, type: 2}
+    - {fileID: 11400000, guid: 09c066589e3f84a47b6c397e5ec63d96, type: 2}
+  - level: 4
+    description: Bantu Tuhet menemukan kunci diantara sampah dan melewati taman perkotaan
+      ini!
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: cd00a361233a5464c8e7c469bc16c0b6, type: 2}
+    - {fileID: 11400000, guid: d77f67846b06b5e42aae8f19de77c6f2, type: 2}
+    - {fileID: 11400000, guid: f96fb21b3c8c2c845b25cb9ca92f7685, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: 3b07f12398cc9994cafb85fa40ca5eb4, type: 2}
+    - {fileID: 11400000, guid: f7f13d93fb1ac9444af2c0a13c0269d8, type: 2}
+    - {fileID: 11400000, guid: 09c066589e3f84a47b6c397e5ec63d96, type: 2}
+  - level: 5
+    description: Lewati jalanan perkebunan tanpa terkena air
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: 7020749509570d14d8a8bdd429ae791d, type: 2}
+    - {fileID: 11400000, guid: 35670e9efecefe0498833b07c51151d5, type: 2}
+    - {fileID: 11400000, guid: 026cc6553d46d69498fcfd27fe342909, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: 3b07f12398cc9994cafb85fa40ca5eb4, type: 2}
+    - {fileID: 11400000, guid: f7f13d93fb1ac9444af2c0a13c0269d8, type: 2}
+    - {fileID: 11400000, guid: 09c066589e3f84a47b6c397e5ec63d96, type: 2}
+  - level: 6
+    description: Bantu Tuhet untuk menuju jalan perkotaan secepat mungkin!
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: 7020749509570d14d8a8bdd429ae791d, type: 2}
+    - {fileID: 11400000, guid: 910f94af015efce4898cfec3dc4b92c7, type: 2}
+    - {fileID: 11400000, guid: af8de187e3933d74cb3123da3fcd864a, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: 3b07f12398cc9994cafb85fa40ca5eb4, type: 2}
+    - {fileID: 11400000, guid: f7f13d93fb1ac9444af2c0a13c0269d8, type: 2}
+    - {fileID: 11400000, guid: 09c066589e3f84a47b6c397e5ec63d96, type: 2}
+  - level: 7
+    description: Bantu Tuhet melewati jalan perkotaan sesuai aturan
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: 7020749509570d14d8a8bdd429ae791d, type: 2}
+    - {fileID: 11400000, guid: 910f94af015efce4898cfec3dc4b92c7, type: 2}
+    - {fileID: 11400000, guid: af8de187e3933d74cb3123da3fcd864a, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: 3b07f12398cc9994cafb85fa40ca5eb4, type: 2}
+    - {fileID: 11400000, guid: f7f13d93fb1ac9444af2c0a13c0269d8, type: 2}
+    - {fileID: 11400000, guid: 09c066589e3f84a47b6c397e5ec63d96, type: 2}
+  - level: 8
+    description: Bantu Tuhet melewati jalan perkotaan sesuai aturan
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: 7020749509570d14d8a8bdd429ae791d, type: 2}
+    - {fileID: 11400000, guid: 87001bcb156d7354eabc24013221ec35, type: 2}
+    - {fileID: 11400000, guid: af8de187e3933d74cb3123da3fcd864a, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: 3b07f12398cc9994cafb85fa40ca5eb4, type: 2}
+    - {fileID: 11400000, guid: f7f13d93fb1ac9444af2c0a13c0269d8, type: 2}
+    - {fileID: 11400000, guid: 09c066589e3f84a47b6c397e5ec63d96, type: 2}
+  - level: 9
+    description: Bantu Tuhet untuk menemukan barang barang yang hilang dan membawanya
+      sesuai tujuan.
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: 6e6ddfb2eba99634ba196bb2a2598f75, type: 2}
+    - {fileID: 11400000, guid: fb3ef30db6bd1674aa05e2eaf3c996d5, type: 2}
+    - {fileID: 11400000, guid: 27e7523598e1a1944ba967f157d9f18f, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: 3b07f12398cc9994cafb85fa40ca5eb4, type: 2}
+    - {fileID: 11400000, guid: f7f13d93fb1ac9444af2c0a13c0269d8, type: 2}
+    - {fileID: 11400000, guid: 09c066589e3f84a47b6c397e5ec63d96, type: 2}
+  - level: 10
+    description: Bantu Tuhet untuk menemukan barang milik anak kecil yang hilang
+      yaitu botol soda dan kaleng soda
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: 6e6ddfb2eba99634ba196bb2a2598f75, type: 2}
+    - {fileID: 11400000, guid: 7a74b938ccd915140ab22e4286fbad5e, type: 2}
+    - {fileID: 11400000, guid: 93d1794d06e384043917d63660d52887, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: 3b07f12398cc9994cafb85fa40ca5eb4, type: 2}
+    - {fileID: 11400000, guid: f7f13d93fb1ac9444af2c0a13c0269d8, type: 2}
+    - {fileID: 11400000, guid: 09c066589e3f84a47b6c397e5ec63d96, type: 2}
+  - level: 11
+    description: Tuhet ingin membantu petugas kebersihan dalam membersihkan taman
+    isClear: 0
+    isUnlocked: 0
+    completedStar: 0
+    listQuest:
+    - {fileID: 11400000, guid: d77f67846b06b5e42aae8f19de77c6f2, type: 2}
+    - {fileID: 11400000, guid: 50fa35076299ba142b2a08eccaf2d3da, type: 2}
+    - {fileID: 11400000, guid: c49ba62dd4f8567459a90a721f883f03, type: 2}
+    listSkill:
+    - {fileID: 11400000, guid: 3b07f12398cc9994cafb85fa40ca5eb4, type: 2}
+    - {fileID: 11400000, guid: f7f13d93fb1ac9444af2c0a13c0269d8, type: 2}
+    - {fileID: 11400000, guid: 09c066589e3f84a47b6c397e5ec63d96, type: 2}

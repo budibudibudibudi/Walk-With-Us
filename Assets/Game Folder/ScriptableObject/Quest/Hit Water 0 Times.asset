@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36f03f707aa2dd94dbdebfc66f1572a7, type: 3}
-  m_Name: ClearTile
+  m_Name: Hit Water 0 Times
   m_EditorClassIdentifier: 
   listSubQuest:
-  - questID: 2
+  - questID: 3
     amount: 0
     Complete: 0

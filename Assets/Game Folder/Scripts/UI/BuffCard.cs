@@ -13,7 +13,7 @@ public class BuffCard : MonoBehaviour
     public void InitCard(string _title, Sprite _bodySprite, string _desc, UnityAction btnAction)
     {
         titleText.text = _title;
-        //bodySprite.sprite = _bodySprite;
+        bodySprite.sprite = _bodySprite;
         descriptionText.text = _desc;
         choseBTN.onClick.AddListener(btnAction);
     }

@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     private bool m_isGrounded;
-    [HideInInspector] public bool canMove = false;
-    [HideInInspector] public bool canJump = false;
+    public bool canMove = false;
+    public bool canJump = false;
 
     private List<Collider> m_collisions = new List<Collider>();
 
@@ -69,7 +69,6 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         float z = Input.GetAxis("Vertical");
-
         Vector3 dir = transform.forward * z;
         transform.position += dir * moveSpeed * Time.deltaTime;
         anim.SetFloat("MoveSpeed", dir.magnitude);
@@ -90,5 +89,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+    }
+    public void AddJumpForce(float amount)
+    {
+        jumpForce += amount;
+    }
+    public void AddSpeed(float amount)
+    {
+        moveSpeed += amount;
     }
 }

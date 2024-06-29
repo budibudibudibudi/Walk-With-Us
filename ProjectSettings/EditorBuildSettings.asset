@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Game Folder/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Game Folder/Scenes/Tutorial.unity
-    guid: e6d58b4acc78fdf4f9c1f5e8de388b64
+    path: Assets/Game Folder/Scenes/LV1.unity
+    guid: 04862cae583fa0d41b5740dcda836792
   - enabled: 1
     path: Assets/Game Folder/Scenes/LV2.unity
     guid: 7504286878a3e7d4e84224c2bf473ff1
@@ -25,22 +25,22 @@ EditorBuildSettings:
     guid: 223fb54721c39d2489e7eea13ca8f501
   - enabled: 1
     path: Assets/Game Folder/Scenes/LV6.unity
-    guid: ce1c1757e826c894cbd861d91f0f6a56
-  - enabled: 1
-    path: Assets/Game Folder/Scenes/LV7.unity
     guid: aa7886cd486416941ac9077eed2361bb
   - enabled: 1
-    path: Assets/Game Folder/Scenes/LV8.unity
+    path: Assets/Game Folder/Scenes/LV7.unity
     guid: 3fddd0547763e5d468f40d3781f9747b
   - enabled: 1
-    path: Assets/Game Folder/Scenes/LV9.unity
+    path: Assets/Game Folder/Scenes/LV8.unity
     guid: 3af822013e4bd0f4d8b92421f7a77f75
   - enabled: 1
-    path: Assets/Game Folder/Scenes/LV10.unity
+    path: Assets/Game Folder/Scenes/LV9.unity
     guid: 8e6d0b67a4416e24ab7a8478ae07598e
   - enabled: 1
-    path: Assets/Game Folder/Scenes/LV11.unity
+    path: Assets/Game Folder/Scenes/LV10.unity
     guid: afdb78db75d99f642a502f3534d5d174
+  - enabled: 1
+    path: Assets/Game Folder/Scenes/LV11.unity
+    guid: 6c406864a9a80d243a444d29c3133da2
   - enabled: 1
     path: Assets/Game Folder/Scenes/MainMenu.unity
     guid: 3b5cd46279caad64f977c551dd27855e

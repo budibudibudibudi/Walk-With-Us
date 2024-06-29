@@ -6,5 +6,6 @@
     HitWater = 3,
     NotWalkToMidRoad = 4,
     Fall = 5,
-    NONE = 99
+    NONE = 99,
+    ZebraCross
 }

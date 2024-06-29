@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36f03f707aa2dd94dbdebfc66f1572a7, type: 3}
-  m_Name: Timer 1.5
+  m_Name: Zebra Cross
   m_EditorClassIdentifier: 
   listSubQuest:
-  - questID: 0
-    amount: 90
+  - questID: 100
+    amount: 1
     Complete: 0
