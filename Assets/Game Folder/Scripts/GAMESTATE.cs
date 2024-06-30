@@ -5,5 +5,6 @@ public enum GAMESTATE
     BUFFING,
     GAMEOVER,
     NEXTLEVEL,
-    MENU
+    MENU,
+    LOSE
 }

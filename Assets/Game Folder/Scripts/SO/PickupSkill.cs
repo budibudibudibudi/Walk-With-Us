@@ -5,28 +5,32 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Pickup",menuName = "Skill/Pickup")]
 public class PickupSkill : Skill
 {
+    public Vector3 offset;
+    public float radius;
     public override IEnumerator UseSkill()
     {
-        if (Player.GetComponent<PlayerInventory>() == null)
-            Player.AddComponent<PlayerInventory>();
         while (true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
+                Collider[] trash = Physics.OverlapSphere(Player.transform.position + offset, radius);
+                if (trash.Length > 0)
                 {
-                    if (hit.collider.CompareTag("Trash"))
+                    foreach (var item in trash)
                     {
-                        Actions.AddObjectToinventory?.Invoke(hit.collider.gameObject);
-                    }
-                    if (hit.collider.CompareTag("Trashcan"))
-                    {
-                        Actions.ThrowGarbage?.Invoke();
+                        if (item.CompareTag("Trash"))
+                        {
+                            Actions.AddObjectToinventory?.Invoke(item.gameObject);
+
+                        }
+                        if (item.CompareTag("Trashcan"))
+                        {
+                            Actions.ThrowGarbage?.Invoke();
+                        }
                     }
                 }
             }
+            yield return null;
         }
     }
 }

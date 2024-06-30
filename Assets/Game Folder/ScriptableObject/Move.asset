@@ -15,3 +15,4 @@ MonoBehaviour:
   skillName: Move
   Icon: {fileID: 21300000, guid: 6a5fc9b9fb6b0ea4e8a002b59896f52c, type: 3}
   Description: Player Movement
+  Stackable: 0

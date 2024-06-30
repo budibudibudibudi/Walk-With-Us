@@ -15,4 +15,5 @@ MonoBehaviour:
   skillName: Add Slot Inventory
   Icon: {fileID: 21300000, guid: c9514b7c7fd6db744b93450d5db5f830, type: 3}
   Description: Add Slot Inventory +1
+  Stackable: 1
   AddInventorySlot: 1

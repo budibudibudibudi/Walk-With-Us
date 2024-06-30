@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 65712561559278560}
   m_Layer: 0
   m_Name: Can_drink
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4450026544068382}
   m_Layer: 0
   m_Name: Can_cola 1 prefab
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

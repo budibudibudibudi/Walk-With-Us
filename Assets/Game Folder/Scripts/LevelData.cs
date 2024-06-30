@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -13,4 +14,17 @@ public class LevelData
     public Quest[] listQuest;
     public Skill[] listSkill;
 
+    public void ResetQuest()
+    {
+        foreach (var item in listQuest)
+        {
+            foreach (var subQuest in item.listSubQuest)
+            {
+                if (subQuest.questID != QuestID.NONE)
+                {
+                    subQuest.Complete = false;
+                }
+            }
+        }
+    }
 }

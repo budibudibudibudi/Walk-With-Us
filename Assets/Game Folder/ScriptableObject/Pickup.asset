@@ -15,3 +15,6 @@ MonoBehaviour:
   skillName: Grab
   Icon: {fileID: 21300000, guid: 36e26766e026e004c96cefdc7fda2291, type: 3}
   Description: Grab trash and throw it
+  Stackable: 0
+  offset: {x: -0.6, y: 0.4, z: 0}
+  radius: 0.5

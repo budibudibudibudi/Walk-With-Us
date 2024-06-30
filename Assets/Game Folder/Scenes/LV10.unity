@@ -19344,7 +19344,7 @@ GameObject:
   - component: {fileID: 1337553052}
   m_Layer: 0
   m_Name: Partikel (1)
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28499,7 +28499,7 @@ GameObject:
   - component: {fileID: 1672984771}
   m_Layer: 0
   m_Name: Partikel
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40055,7 +40055,7 @@ GameObject:
   - component: {fileID: 4849568168265281}
   m_Layer: 0
   m_Name: GlassCola prefab
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40071,7 +40071,7 @@ GameObject:
   - component: {fileID: 4034966562561727}
   m_Layer: 0
   m_Name: Can_orange prefab
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40090,7 +40090,7 @@ GameObject:
   - component: {fileID: 65121639937709471}
   m_Layer: 0
   m_Name: Can_drink
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40109,7 +40109,7 @@ GameObject:
   - component: {fileID: 65868972623278097}
   m_Layer: 0
   m_Name: GlassCoke
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

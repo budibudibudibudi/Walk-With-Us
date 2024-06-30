@@ -6,7 +6,20 @@ using UnityEngine;
 public class PlayerAction : MonoBehaviour
 {
     [SerializeField] private List<Skill> listSkillOfPlayer;
-
+    [SerializeField] private int waterHit;
+    private void Start()
+    {
+        List<string> listskill = JsonHelper.ReadListFromJSON<string>("Player Skill List");
+        if (listskill != null)
+        {
+            foreach (var item in listskill)
+            {
+                Skill newSkill = Array.Find(Funcs.GetAllSkill(), n => n.skillName == item);
+                if(newSkill != null)
+                    listSkillOfPlayer.Add(newSkill);
+            }
+        }
+    }
     private void OnEnable()
     {
         Actions.AddSkillToPlayer += AddSkill;
@@ -33,9 +46,26 @@ public class PlayerAction : MonoBehaviour
                 break;
             case GAMESTATE.BUFFING:
                 break;
+            case GAMESTATE.GAMEOVER:
+                foreach (var item in listSkillOfPlayer)
+                {
+                    StopCoroutine(item.UseSkill());
+                }
+                SaveListSkill();
+                break;
             default:
                 break;
         }
+    }
+
+    private void SaveListSkill()
+    {
+        List<string> listskill = new();
+        foreach (var item in listSkillOfPlayer)
+        {
+            listskill.Add(item.skillName);
+        }
+        JsonHelper.SaveToJSON(listskill, "Player Skill List");
     }
 
     private void AddSkill(Skill skill)
@@ -49,5 +79,23 @@ public class PlayerAction : MonoBehaviour
         {
             Actions.OnStateChange?.Invoke(GAMESTATE.GAMEOVER);
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            waterHit++;
+        }
+        if (other.CompareTag("Waterkill"))
+        {
+            Actions.OnStateChange?.Invoke(GAMESTATE.LOSE);
+            gameObject.SetActive(false);
+        }
+    }
+    public Vector3 offset;
+    public float radius;
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position + offset, radius);
     }
 }

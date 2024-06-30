@@ -16,4 +16,3 @@ MonoBehaviour:
   - questID: 99
     amount: 0
     Complete: 1
-  allSubquestComplete: 0

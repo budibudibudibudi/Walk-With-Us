@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     #region Singleton
     public static GameManager Instance;
-    private void Start()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -35,7 +36,6 @@ public class GameManager : MonoBehaviour
         Funcs.GetCurrentLevel += GetCurrentLevel;
         Funcs.GetTimer += GetTimer;
         Funcs.GetGameState += GetGamestate;
-        Actions.AddSkillToPlayer += SaveSkill;
         Actions.SelectedLevel += GotoLevel;
     }
     private void OnDisable()
@@ -45,34 +45,12 @@ public class GameManager : MonoBehaviour
         Funcs.GetCurrentLevel -= GetCurrentLevel;
         Funcs.GetTimer -= GetTimer;
         Funcs.GetGameState -= GetGamestate;
-        Actions.AddSkillToPlayer -= SaveSkill;
         Actions.SelectedLevel -= GotoLevel;
     }
 
     private float GetTimer()
     {
         return Timer;
-    }
-    private void SaveSkill(Skill obj)
-    {
-        List<string> listskill = JsonHelper.ReadListFromJSON<string>("Player Skill List");
-        if (listskill == null)
-        {
-            listskill = new();
-            listskill.Add(obj.skillName);
-            JsonHelper.SaveToJSON(listskill, "Player Skill List");
-        }
-        else
-        {
-            foreach (var item in listskill)
-            {
-                if (item != obj.skillName)
-                {
-                    listskill.Add(obj.skillName);
-                    JsonHelper.SaveToJSON(listskill, "Player Skill List");
-                }
-            }
-        }
     }
 
     private int GetCurrentLevel()
@@ -104,18 +82,42 @@ public class GameManager : MonoBehaviour
                 break;
             case GAMESTATE.BUFFING:
                 Cursor.lockState = CursorLockMode.None;
-                bool isPlayerHasSkill = CheckSkillPlayer(GetListSkillCurrentLevel());
-                if (!isPlayerHasSkill)
+                bool openBuff = false;
+                List<string> listskill = JsonHelper.ReadListFromJSON<string>("Player Skill List");
+                if (listskill != null)
                 {
-                    Time.timeScale = 0;
+
+                    foreach (var item in Funcs.GetAllSkillCurrentLevel())
+                    {
+                        if (item.Stackable)
+                        {
+                            openBuff = true;
+                        }
+                        else
+                        {
+                            if (!listskill.Contains(item.skillName))
+                            {
+                                openBuff = true;
+                            }
+                            else
+                            {
+                                openBuff = false;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+
+                    Actions.OnPageChange?.Invoke(PAGENAME.BUFFCARDSPAGE);
+                    return;
+                }
+                if (openBuff)
+                {
                     Actions.OnPageChange?.Invoke(PAGENAME.BUFFCARDSPAGE);
                 }
                 else
                 {
-                    foreach (var item in GetListSkillCurrentLevel())
-                    {
-                        Actions.AddSkillToPlayer?.Invoke(item);
-                    }
                     Actions.OnStateChange?.Invoke(GAMESTATE.PLAY);
                 }
                 break;
@@ -128,36 +130,16 @@ public class GameManager : MonoBehaviour
                 break;
             case GAMESTATE.NEXTLEVEL:
                 currentLevel++;
-                SceneManager.LoadScene($"LV{currentLevel + 1}");
-                SceneManager.sceneLoaded += (scene, loaded) =>
-                {
-                    switch (loaded)
-                    {
-                        case LoadSceneMode.Single:
-                            Actions.OnStateChange?.Invoke(GAMESTATE.BUFFING);
-                            break;
-                        case LoadSceneMode.Additive:
-                            break;
-                        default:
-                            break;
-                    }
-                };
-                SceneManager.sceneLoaded -= (scene, loaded) =>
-                {
-                    switch (loaded)
-                    {
-                        case LoadSceneMode.Single:
-                            Actions.OnStateChange?.Invoke(GAMESTATE.BUFFING);
-                            break;
-                        case LoadSceneMode.Additive:
-                            break;
-                        default:
-                            break;
-                    }
-                };
+                GotoLevel(currentLevel);
                 break;
             case GAMESTATE.MENU:
                 Cursor.lockState = CursorLockMode.None;
+                break;
+            case GAMESTATE.LOSE:
+                Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 0;
+                Funcs.GetLevelDatas()[currentLevel].ResetQuest();
+                Actions.OnPageChange?.Invoke(PAGENAME.FINISHPAGE);
                 break;
         }
     }
@@ -175,8 +157,10 @@ public class GameManager : MonoBehaviour
     private void SaveLevelData(LevelData levelData)
     {
         List<SavedLevelData> listLevelData = LoadListLevelData();
+        if (listLevelData == null)
+            listLevelData = new();
         SavedLevelData currentLevelData = null;
-        int nextLevel = currentLevel++;
+        int nextLevel = currentLevel+1;
         if (listLevelData == null || listLevelData.Count == 0)
         {
             currentLevelData = new SavedLevelData();
@@ -193,7 +177,8 @@ public class GameManager : MonoBehaviour
         currentLevelData.isClear = levelData.isClear;
         currentLevelData.isUnlocked = levelData.isUnlocked;
         currentLevelData.completedStar = levelData.completedStar;
-        JsonHelper.SaveToJSON(currentLevelData, "LevelData");
+        listLevelData.Add(currentLevelData);
+        JsonHelper.SaveToJSON(listLevelData, "ListLevelData");
         if (levelData.isClear)
         {
             LevelData nextLevelData = Array.Find(Funcs.GetLevelDatas(), n => n.level == nextLevel);
@@ -203,7 +188,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    private List<SavedLevelData> LoadListLevelData()
+    public List<SavedLevelData> LoadListLevelData()
     {
         List<SavedLevelData> listLevelData = JsonHelper.ReadListFromJSON<SavedLevelData>("ListLevelData");
         return listLevelData;
@@ -219,14 +204,18 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void GotoLevel(int value)
+    private async void GotoLevel(int value)
     {
         currentLevel = value;
+        AsyncOperation operation = SceneManager.LoadSceneAsync($"LV{currentLevel}");
+        while (!operation.isDone)
+        {
+            await Task.Yield();
+        }
         if (currentLevel > 1)
         {
-            Actions.OnPageChange?.Invoke(PAGENAME.BUFFCARDSPAGE);
+            Actions.OnStateChange?.Invoke(GAMESTATE.BUFFING);
         }
-        SceneManager.LoadScene($"LV{currentLevel}");
     }
 
     private bool CheckSkillPlayer(Skill[] skills)

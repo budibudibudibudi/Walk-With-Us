@@ -9,6 +9,40 @@ public class LevelManager : MonoBehaviour
 
     public LevelData[] GetLevelDatas() { return levelDatas; }
 
+    private void Start()
+    {
+        List<SavedLevelData> savedLevelDatas = GameManager.Instance.LoadListLevelData();
+        if (savedLevelDatas == null) return;
+        if (savedLevelDatas.Count > 0||savedLevelDatas != null)
+        {
+            foreach (var item in savedLevelDatas)
+            {
+                LevelData data = Array.Find(levelDatas, d => d.level == item.level);
+                if (data != null)
+                {
+                    data.isClear = item.isClear;
+                    data.isUnlocked = item.isUnlocked;
+                    data.completedStar = item.completedStar;
+                }
+            }
+        }
+        for (int i = 0; i < levelDatas.Length; i++)
+        {
+            if (levelDatas[i].isClear)
+            {
+                int next = i + 1;
+                try
+                {
+                    levelDatas[next].isUnlocked = true;
+
+                }
+                catch 
+                {
+                    break;
+                }
+            }
+        }
+    }
     private void OnEnable()
     {
         Funcs.GetLevelDatas += GetLevelDatas;
@@ -37,6 +71,7 @@ public class LevelManager : MonoBehaviour
         {
             case GAMESTATE.PLAY:
                 LevelData levelData = Array.Find(levelDatas,l=>l.level == Funcs.GetCurrentLevel());
+                levelData.ResetQuest();
                 foreach (var item in levelData.listQuest)
                 {
                     item.Init();
@@ -66,6 +101,7 @@ public class LevelManager : MonoBehaviour
                 levelData.completedStar++;
             }
         }
+        int send = Mathf.Clamp(levelData.completedStar, 0, 3);
         return levelData.completedStar;
     }
 }

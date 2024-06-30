@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4441100831826320}
   m_Layer: 0
   m_Name: Can_lemon prefab
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 65726621287909890}
   m_Layer: 0
   m_Name: Can_drink
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

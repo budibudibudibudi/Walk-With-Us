@@ -22,7 +22,7 @@ public class LevelCard : MonoBehaviour
             }
             catch
             {
-                starHolders[i].sprite = null;
+                continue;
             }
         }
         GetComponent<Button>().onClick.AddListener(() => Actions.SelectedLevel?.Invoke(levelData.level));

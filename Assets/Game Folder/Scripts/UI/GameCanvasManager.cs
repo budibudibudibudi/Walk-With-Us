@@ -11,7 +11,7 @@ public class GameCanvasManager : CanvasManager
     }
     private void OnDisable()
     {
-        Actions.OnPageChange += OnPageChange;
+        Actions.OnPageChange -= OnPageChange;
     }
 
     private void OnPageChange(PAGENAME pageName)

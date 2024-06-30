@@ -12,4 +12,6 @@ public static class Actions
     public static Action<QuestID,int> ReportQuest;
     public static Action<int> SelectedLevel;
     public static Action<LevelData> unlockNextLevel;
+    public static Action<string> ShowWarningText;
+    public static Action RefreshInventory;
 }

@@ -15,4 +15,5 @@ MonoBehaviour:
   skillName: Jump
   Icon: {fileID: 21300000, guid: 815ddbf38ec7be44f891492bff5d3b55, type: 3}
   Description: Player can jump
+  Stackable: 1
   addPower: 0.3

@@ -15,4 +15,5 @@ MonoBehaviour:
   skillName: AddSpeed
   Icon: {fileID: 21300000, guid: fac05b307118adc418fcce58baf1a1eb, type: 3}
   Description: Add movement speed
+  Stackable: 1
   AddPower: 0.3

@@ -7,6 +7,7 @@ public abstract class Skill : ScriptableObject
     public string skillName;
     public Sprite Icon;
     public string Description;
+    public bool Stackable = true;
 
     protected GameObject Player;
     public virtual IEnumerator UseSkill()

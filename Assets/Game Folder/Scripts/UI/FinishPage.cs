@@ -11,7 +11,7 @@ public class FinishPage : Page
     [SerializeField] private Button nextBTN,levelBTN,retryBTN;
     [SerializeField] private TMP_Text timerText,gameOverText;
     [SerializeField] private Image[] starsHolder;
-    [SerializeField] private Sprite starSprite;
+    [SerializeField] private Sprite starSprite,blackStarSprite;
 
     protected override void Start()
     {
@@ -27,7 +27,7 @@ public class FinishPage : Page
         levelBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.LEVELPAGE));
         retryBTN.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
         timerText.text = Funcs.GetTimer().ToString("F2");
-
+        gameOverText.text = Funcs.GetGameState() == GAMESTATE.GAMEOVER ? "You Win" : "You Lose";
 
         for (int i = 0; i < star; i++)
         {
