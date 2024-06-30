@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Game Folder/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Game Folder/Scenes/MainMenu.unity
+    guid: 3b5cd46279caad64f977c551dd27855e
   - enabled: 1
     path: Assets/Game Folder/Scenes/LV1.unity
     guid: 04862cae583fa0d41b5740dcda836792
@@ -41,10 +41,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game Folder/Scenes/LV11.unity
     guid: 6c406864a9a80d243a444d29c3133da2
-  - enabled: 1
-    path: Assets/Game Folder/Scenes/MainMenu.unity
-    guid: 3b5cd46279caad64f977c551dd27855e
-  - enabled: 1
-    path: Assets/Supercyan Character Pack Free Sample/Scenes/DemoScene.unity
-    guid: a33ada31778ec4b4fa84304c895bd20a
   m_configObjects: {}

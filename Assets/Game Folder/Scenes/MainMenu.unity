@@ -928,10 +928,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6799008916890388689, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
-      propertyPath: levelDatas.Array.data[5].isUnlocked
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24d77c05854691445a056f83de5f5dd7, type: 3}
 --- !u!1001 &1616309102394285709

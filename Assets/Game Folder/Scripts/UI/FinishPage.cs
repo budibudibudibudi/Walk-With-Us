@@ -17,6 +17,16 @@ public class FinishPage : Page
     {
         int star = Funcs.GetCompletedStar();
         int currentLevel = Funcs.GetCurrentLevel.Invoke();
+        if (star <=0)
+        {
+            AudioManager.instance.PlayMusic("Failure");
+            nextBTN.gameObject.SetActive(false);
+        }
+        else
+        {
+            AudioManager.instance.PlayMusic("Finish");
+            nextBTN.gameObject.SetActive(true);
+        }
         nextBTN.onClick.AddListener(() => {
             LevelData levelData = Array.Find(Funcs.GetLevelDatas(),l=>l.level == currentLevel);
             if (levelData.isClear)
@@ -24,7 +34,11 @@ public class FinishPage : Page
                 Actions.OnStateChange?.Invoke(GAMESTATE.NEXTLEVEL);
             }
             });
-        levelBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.LEVELPAGE));
+        levelBTN.onClick.AddListener(() =>
+        {
+            AudioManager.instance.StopAllMusic();
+            SceneManager.LoadScene("MainMenu");
+        });
         retryBTN.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
         timerText.text = Funcs.GetTimer().ToString("F2");
         gameOverText.text = Funcs.GetGameState() == GAMESTATE.GAMEOVER ? "You Win" : "You Lose";

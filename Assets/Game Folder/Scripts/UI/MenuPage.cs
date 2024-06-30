@@ -9,6 +9,8 @@ public class MenuPage : Page
     [SerializeField] private Button playBTN,settingBTN,levelBTN;
     protected override void Start()
     {
+        AudioManager.instance.StopAllMusic();
+        AudioManager.instance.PlayMusic("Menu");
         playBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.LEVELPAGE));
         settingBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.OPTIONSPAGE));
         levelBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.LEVELPAGE));

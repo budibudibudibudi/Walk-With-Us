@@ -68,13 +68,13 @@ MonoBehaviour:
     isloop: 0
     playonawake: 0
     volume: 1
-  - audiotype: 0
+  - audiotype: 1
     source: {fileID: 0}
     audioclip: {fileID: 8300000, guid: b57fb5f20263557438552469a989576f, type: 3}
     clipname: Game
-    isloop: 0
+    isloop: 1
     playonawake: 0
-    volume: 1
+    volume: 0.5
   - audiotype: 0
     source: {fileID: 0}
     audioclip: {fileID: 8300000, guid: b2f1bb0f92056124298904546a987fc9, type: 3}
@@ -103,3 +103,10 @@ MonoBehaviour:
     isloop: 0
     playonawake: 0
     volume: 1
+  - audiotype: 1
+    source: {fileID: 0}
+    audioclip: {fileID: 8300000, guid: 2ee4a3ecec6e0f14c82808ac3ca15e09, type: 3}
+    clipname: Menu
+    isloop: 1
+    playonawake: 0
+    volume: 0.5

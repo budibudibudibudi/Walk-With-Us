@@ -14,10 +14,18 @@ public class GameSetting : MonoBehaviour
     private void OnEnable()
     {
         Actions.ThrowGarbage += RefreshTrashAmount;
+        Funcs.GetTrashAmountInScene += GetTrashAmount;
     }
+
     private void OnDisable()
     {
         Actions.ThrowGarbage -= RefreshTrashAmount;
+        Funcs.GetTrashAmountInScene -= GetTrashAmount;
+    }
+
+    private int GetTrashAmount()
+    {
+        return trashAmount;
     }
 
     private void RefreshTrashAmount()

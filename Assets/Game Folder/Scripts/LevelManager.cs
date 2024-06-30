@@ -71,6 +71,7 @@ public class LevelManager : MonoBehaviour
         {
             case GAMESTATE.PLAY:
                 LevelData levelData = Array.Find(levelDatas,l=>l.level == Funcs.GetCurrentLevel());
+                levelData.completedStar = 0;
                 levelData.ResetQuest();
                 foreach (var item in levelData.listQuest)
                 {
@@ -94,6 +95,7 @@ public class LevelManager : MonoBehaviour
     private int GetCompletedStar()
     {
         LevelData levelData = Array.Find(levelDatas, l => l.level == Funcs.GetCurrentLevel());
+        levelData.completedStar = 0;
         foreach (var item in levelData.listQuest)
         {
             if (item.Complete())

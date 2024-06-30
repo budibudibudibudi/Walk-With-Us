@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
         switch (currentState)
         {
             case GAMESTATE.PLAY:
+                AudioManager.instance.StopAllMusic();
+                AudioManager.instance.PlayMusic("Game");
                 Timer = 0;
                 StartCoroutine(StartTimer());
                 Time.timeScale = 1;
@@ -124,7 +126,11 @@ public class GameManager : MonoBehaviour
             case GAMESTATE.GAMEOVER:
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
-                Actions.ReportQuest(QuestID.Timer, (int)Timer);
+                Actions.ReportQuest(QuestID.Timer, (int)Timer); 
+                Actions.ReportQuest(QuestID.HitWater, Funcs.GetHitWater()); 
+                Actions.ReportQuest(QuestID.FindObject,Funcs.GetKeyCount());
+                Actions.ReportQuest(QuestID.ZebraCross, Funcs.GetZebraCrossWalk()); 
+                Actions.ReportQuest(QuestID.ClearTile, Funcs.GetTrashAmountInScene()); 
                 StarCalculation();
                 Actions.OnPageChange?.Invoke(PAGENAME.FINISHPAGE);
                 break;
@@ -136,6 +142,7 @@ public class GameManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case GAMESTATE.LOSE:
+                AudioManager.instance.PlayMusic("Failure");
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
                 Funcs.GetLevelDatas()[currentLevel].ResetQuest();
@@ -210,36 +217,16 @@ public class GameManager : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync($"LV{currentLevel}");
         while (!operation.isDone)
         {
+            if (!AudioManager.instance.CheckAudioIsPlaying("Loading"))
+            {
+                AudioManager.instance.PlayMusic("Loading");
+            }
             await Task.Yield();
         }
+        AudioManager.instance.StopMusic("Loading");
         if (currentLevel > 1)
         {
             Actions.OnStateChange?.Invoke(GAMESTATE.BUFFING);
         }
-    }
-
-    private bool CheckSkillPlayer(Skill[] skills)
-    {
-        List<string> listskill = JsonHelper.ReadListFromJSON<string>("Player Skill List");
-        if (listskill == null)
-            return false;
-        if (listskill.Count <= 0)
-        {
-            return false;
-        }
-        else
-        {
-            foreach (var item in listskill)
-            {
-                foreach (var skill in skills)
-                {
-                    if (item == skill.skillName)
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
     }
 }

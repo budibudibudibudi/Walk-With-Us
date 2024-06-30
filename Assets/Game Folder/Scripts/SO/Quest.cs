@@ -70,6 +70,12 @@ public class Quest:ScriptableObject
                             subQuest.Complete = true;
                         }
                         break;
+                    case QuestID.ZebraCross:
+                        if (value >= subQuest.amount)
+                        {
+                            subQuest.Complete = true;
+                        }
+                        break;
                     default:
                         break;
                 }

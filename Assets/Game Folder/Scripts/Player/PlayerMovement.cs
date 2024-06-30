@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                AudioManager.instance.PlayMusic("Jump");
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 m_isGrounded = false;
             }
@@ -69,6 +70,18 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         float z = Input.GetAxis("Vertical");
+        if (z != 0)
+        {
+            if (!AudioManager.instance.CheckAudioIsPlaying("FootStep"))
+            {
+                AudioManager.instance.PlayMusic("FootStep");
+            }
+        }
+        else
+        {
+            AudioManager.instance.StopMusic("FootStep");
+
+        }
         Vector3 dir = transform.forward * z;
         transform.position += dir * moveSpeed * Time.deltaTime;
         anim.SetFloat("MoveSpeed", dir.magnitude);

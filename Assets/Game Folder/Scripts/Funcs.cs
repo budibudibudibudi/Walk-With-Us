@@ -17,4 +17,7 @@ public static class Funcs
     public static Func<Skill[]> GetAllSkill;
     public static Func<Skill[]> GetPlayerSkills;
     public static Func<int[]> GetItemInInventory;
+    public static Func<int> GetHitWater;
+    public static Func<int> GetZebraCrossWalk;
+    public static Func<int> GetKeyCount;
 }

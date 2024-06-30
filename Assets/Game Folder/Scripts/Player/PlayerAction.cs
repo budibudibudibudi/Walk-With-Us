@@ -7,6 +7,8 @@ public class PlayerAction : MonoBehaviour
 {
     [SerializeField] private List<Skill> listSkillOfPlayer;
     [SerializeField] private int waterHit;
+    [SerializeField] private int Key;
+    [SerializeField] private int zebraCross;
     private void Start()
     {
         List<string> listskill = JsonHelper.ReadListFromJSON<string>("Player Skill List");
@@ -24,12 +26,30 @@ public class PlayerAction : MonoBehaviour
     {
         Actions.AddSkillToPlayer += AddSkill;
         Actions.OnStateChange += OnStateChange;
+        Funcs.GetHitWater += GetWaterhit;
+        Funcs.GetKeyCount += GetKey;
+        Funcs.GetZebraCrossWalk += GetZebraCross;
     }
 
     private void OnDisable()
     {
         Actions.AddSkillToPlayer -= AddSkill;
         Actions.OnStateChange -= OnStateChange;
+    }
+
+    private int GetZebraCross()
+    {
+        return zebraCross;
+    }
+
+    private int GetKey()
+    {
+        return Key;
+    }
+
+    private int GetWaterhit()
+    {
+        return waterHit;
     }
     private void OnStateChange(GAMESTATE gAMESTATE)
     {
@@ -78,6 +98,15 @@ public class PlayerAction : MonoBehaviour
         if (collision.gameObject.tag == "Finish")
         {
             Actions.OnStateChange?.Invoke(GAMESTATE.GAMEOVER);
+        }
+        if (collision.gameObject.tag == "Key")
+        {
+            Key++;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "ZebraCross")
+        {
+            zebraCross++;
         }
     }
     private void OnTriggerEnter(Collider other)
