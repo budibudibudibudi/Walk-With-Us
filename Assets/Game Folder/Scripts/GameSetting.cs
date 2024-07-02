@@ -22,7 +22,20 @@ public class GameSetting : MonoBehaviour
         Actions.ThrowGarbage -= RefreshTrashAmount;
         Funcs.GetTrashAmountInScene -= GetTrashAmount;
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Funcs.GetGameState() != GAMESTATE.PAUSE)
+            {
+                Actions.OnStateChange?.Invoke(GAMESTATE.PAUSE);
+            }
+            else
+            {
+                Actions.OnStateChange?.Invoke(GAMESTATE.PLAY);
+            }
+        }
+    }
     private int GetTrashAmount()
     {
         return trashAmount;

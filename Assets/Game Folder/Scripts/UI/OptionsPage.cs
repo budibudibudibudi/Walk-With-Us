@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class OptionsPage : Page
 {
     [SerializeField] private Slider musicSlider, sfxSlider;
-    [SerializeField] Button backBTN;
+    [SerializeField] Button backBTN,creditBTN;
     protected override void Start()
     {
         base.Start();
         musicSlider.onValueChanged?.AddListener((value)=>AudioManager.instance.SetVolume(Audio.AudioType.music, value));
         sfxSlider.onValueChanged?.AddListener((value)=>AudioManager.instance.SetVolume(Audio.AudioType.soundEffect, value));
         backBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.MENUPAGE));
+        creditBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.CREDITPAGE));
     }
 }

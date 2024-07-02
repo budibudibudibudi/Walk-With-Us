@@ -14,4 +14,5 @@ public static class Actions
     public static Action<LevelData> unlockNextLevel;
     public static Action<string> ShowWarningText;
     public static Action RefreshInventory;
+    public static Action SaveSkillsPlayer;
 }

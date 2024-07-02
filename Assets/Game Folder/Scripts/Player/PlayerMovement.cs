@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Horizontal");
         if (z != 0)
         {
             if (!AudioManager.instance.CheckAudioIsPlaying("FootStep"))
@@ -82,8 +83,11 @@ public class PlayerMovement : MonoBehaviour
             AudioManager.instance.StopMusic("FootStep");
 
         }
-        Vector3 dir = transform.forward * z;
-        transform.position += dir * moveSpeed * Time.deltaTime;
+
+        Vector3 dir = transform.right * x + transform.forward * z;
+
+        rb.velocity = dir*moveSpeed;
+        //transform.position += dir * moveSpeed * Time.deltaTime;
         anim.SetFloat("MoveSpeed", dir.magnitude);
     }
 

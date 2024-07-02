@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1990399844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1990399845}
+  m_Layer: 0
+  m_Name: CameraRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1990399845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990399844}
+  m_LocalRotation: {x: 0.20577715, y: 0, z: 0, w: 0.9785989}
+  m_LocalPosition: {x: 0, y: 0.216, z: -0.798}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6631022286399006161}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 23.75, y: 0, z: 0}
 --- !u!1 &6633883412542522117
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +132,7 @@ Transform:
   - {fileID: 6631250355161847413}
   - {fileID: 6636197394206365467}
   - {fileID: 8823451473038537997}
+  - {fileID: 1990399845}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -184,6 +216,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listSkillOfPlayer: []
+  waterHit: 0
+  Key: 0
+  zebraCross: 0
+  offset: {x: -0.6, y: 0.4, z: 0}
+  radius: 0.5
 --- !u!114 &8001081654745481672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +236,7 @@ MonoBehaviour:
   inventorySlot: 1
   inventory: []
   inventoryStorage: {fileID: 8823451473038537997}
+  itemInInventory: 0
 --- !u!1 &6633905326671803101
 GameObject:
   m_ObjectHideFlags: 0

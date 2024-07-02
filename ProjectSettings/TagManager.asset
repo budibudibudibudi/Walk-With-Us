@@ -12,6 +12,7 @@ TagManager:
   - Waterkill
   - halangan
   - ZebraCross
+  - Bush
   layers:
   - Default
   - TransparentFX

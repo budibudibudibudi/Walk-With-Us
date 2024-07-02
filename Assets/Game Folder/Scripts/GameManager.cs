@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
             case GAMESTATE.PAUSE:
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
+                Actions.OnPageChange?.Invoke(PAGENAME.PAUSEPAGE);
                 break;
             case GAMESTATE.BUFFING:
                 Cursor.lockState = CursorLockMode.None;

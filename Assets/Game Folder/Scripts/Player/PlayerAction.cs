@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
@@ -26,6 +27,7 @@ public class PlayerAction : MonoBehaviour
     {
         Actions.AddSkillToPlayer += AddSkill;
         Actions.OnStateChange += OnStateChange;
+        Actions.SaveSkillsPlayer += SaveListSkill;
         Funcs.GetHitWater += GetWaterhit;
         Funcs.GetKeyCount += GetKey;
         Funcs.GetZebraCrossWalk += GetZebraCross;
@@ -35,6 +37,10 @@ public class PlayerAction : MonoBehaviour
     {
         Actions.AddSkillToPlayer -= AddSkill;
         Actions.OnStateChange -= OnStateChange;
+        Actions.SaveSkillsPlayer -= SaveListSkill;
+        Funcs.GetHitWater -= GetWaterhit;
+        Funcs.GetKeyCount -= GetKey;
+        Funcs.GetZebraCrossWalk -= GetZebraCross;
     }
 
     private int GetZebraCross()
@@ -71,7 +77,6 @@ public class PlayerAction : MonoBehaviour
                 {
                     StopCoroutine(item.UseSkill());
                 }
-                SaveListSkill();
                 break;
             default:
                 break;
@@ -108,7 +113,20 @@ public class PlayerAction : MonoBehaviour
         {
             zebraCross++;
         }
+        if (collision.gameObject.tag == "Bush")
+        {
+            KnockBack();
+        }
     }
+
+    private async void KnockBack()
+    {
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<Rigidbody>().velocity = (-transform.forward) * 5;
+        await Task.Delay(1000);
+        GetComponent<PlayerMovement>().enabled = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Water"))

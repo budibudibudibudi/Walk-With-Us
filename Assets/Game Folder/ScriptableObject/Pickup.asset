@@ -17,4 +17,4 @@ MonoBehaviour:
   Description: Grab trash and throw it
   Stackable: 0
   offset: {x: -0.6, y: 0.4, z: 0}
-  radius: 0.5
+  radius: 1

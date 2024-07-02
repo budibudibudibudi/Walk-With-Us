@@ -12,9 +12,9 @@ public class BuffCard : MonoBehaviour
     [SerializeField] private Button choseBTN;
     public void InitCard(string _title, Sprite _bodySprite, string _desc, UnityAction btnAction)
     {
-        titleText.text = _title;
+        //titleText.text = _title;
         bodySprite.sprite = _bodySprite;
-        descriptionText.text = _desc;
+        descriptionText.text = _title;
         choseBTN.onClick.AddListener(btnAction);
     }
 }
