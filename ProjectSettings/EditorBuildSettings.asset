@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Game Folder/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Game Folder/Scenes/Tutorial.unity
-    guid: e6d58b4acc78fdf4f9c1f5e8de388b64
+    path: Assets/Game Folder/Scenes/LV1.unity
+    guid: 04862cae583fa0d41b5740dcda836792
   - enabled: 1
     path: Assets/Game Folder/Scenes/LV2.unity
     guid: 7504286878a3e7d4e84224c2bf473ff1
