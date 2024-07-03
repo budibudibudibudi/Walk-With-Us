@@ -52,9 +52,9 @@ public class PlayerInventory : MonoBehaviour
             AudioManager.instance.PlayMusic("Pickup");
             obj.transform.SetParent(inventoryStorage,false);
             inventory.Add(obj);
+            itemInInventory++;
+            Actions.RefreshInventory?.Invoke();
         }
-        itemInInventory++;
-        Actions.RefreshInventory?.Invoke();
     }
     public void AddInventorySlot(int amount)
     {
