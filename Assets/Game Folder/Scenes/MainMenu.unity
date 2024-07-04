@@ -929,6 +929,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2830179101980454200, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830179101980454200, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966694367341658127, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966694367341658127, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966694367341658127, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548735843842532064, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548735843842532064, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636144224111282042, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636144224111282042, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636144224111282042, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22f6d9cfd70fc0e4fbe1378aad314335, type: 3}
 --- !u!224 &2117033866 stripped
