@@ -11,7 +11,7 @@ public class MenuPage : Page
     {
         AudioManager.instance.StopAllMusic();
         AudioManager.instance.PlayMusic("Menu");
-        playBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.LEVELPAGE));
+        playBTN.onClick.AddListener(() => Actions.SelectedLevel?.Invoke(1));
         settingBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.OPTIONSPAGE));
         levelBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.LEVELPAGE));
         exitBTN.onClick.AddListener(()=>Application.Quit());
