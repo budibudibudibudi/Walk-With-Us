@@ -50,6 +50,7 @@ public class PlayerInventory : MonoBehaviour
         if (inventory.Count < inventorySlot)
         {
             AudioManager.instance.PlayMusic("Pickup");
+            GetComponent<Animator>().SetTrigger("Pickup");
             obj.transform.SetParent(inventoryStorage,false);
             inventory.Add(obj);
             itemInInventory++;

@@ -139,10 +139,4 @@ public class PlayerAction : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    public Vector3 offset;
-    public float radius;
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position + offset, radius);
-    }
 }

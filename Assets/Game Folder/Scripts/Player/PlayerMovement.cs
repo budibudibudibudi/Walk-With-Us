@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 AudioManager.instance.PlayMusic("Jump");
+                anim.SetTrigger("Jump");
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 m_isGrounded = false;
             }
@@ -63,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     private void Rotatation()
     {
         float x = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
-        Vector3 rot = new Vector3(0, x, 0);
+        Vector3 rot = new Vector3(0, x, 0).normalized;
         transform.Rotate( rot);
     }
 
@@ -84,11 +85,25 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        Vector3 dir = transform.right * x + transform.forward * z;
+        Vector3 direction = new Vector3(x, rb.velocity.y, z).normalized;
+        if (direction.magnitude >= 0.1f)
+        {
+            float turnSmoothTime = 0.1f;
+            float turnSmoothVelocity = 0;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + transform.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-        rb.velocity = dir*moveSpeed;
-        //transform.position += dir * moveSpeed * Time.deltaTime;
-        anim.SetFloat("MoveSpeed", dir.magnitude);
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            rb.velocity = moveDir.normalized * moveSpeed;
+
+            anim.SetFloat("MoveSpeed", rb.velocity.magnitude);
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+            anim.SetFloat("MoveSpeed", 0);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
