@@ -7,20 +7,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float MouseSensitivity = 10f;
     [SerializeField] private float jumpForce;
+    private float gravityValue = -9.81f;
 
     Animator anim;
-    Rigidbody rb;
-
-    private bool m_isGrounded;
+    CharacterController controller;
+    [SerializeField]private bool m_isGrounded;
     public bool canMove = false;
     public bool canJump = false;
-
+    private Vector3 playerVelocity;
     private List<Collider> m_collisions = new List<Collider>();
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
     }
 
     private void FixedUpdate()
@@ -31,9 +31,16 @@ public class PlayerMovement : MonoBehaviour
             Move();
         }
     }
+
     private void Update()
     {
-
+        m_isGrounded = controller.isGrounded;
+        if (m_isGrounded && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
         if (canJump)
         {
             Jump();
@@ -47,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             Rotatation();
         }
     }
+
     private void Jump()
     {
         if (m_isGrounded)
@@ -55,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 AudioManager.instance.PlayMusic("Jump");
                 anim.SetTrigger("Jump");
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                playerVelocity.y += Mathf.Sqrt(jumpForce * -3.0f * gravityValue);
                 m_isGrounded = false;
             }
         }
@@ -64,68 +72,23 @@ public class PlayerMovement : MonoBehaviour
     private void Rotatation()
     {
         float x = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
-        Vector3 rot = new Vector3(0, x, 0).normalized;
-        transform.Rotate( rot);
+        Vector3 rot = new Vector3(0, x, 0);
+        transform.Rotate(rot);
     }
 
     private void Move()
     {
-        float z = Input.GetAxis("Vertical");
         float x = Input.GetAxis("Horizontal");
-        if (z != 0)
-        {
-            if (!AudioManager.instance.CheckAudioIsPlaying("FootStep"))
-            {
-                AudioManager.instance.PlayMusic("FootStep");
-            }
-        }
-        else
-        {
-            AudioManager.instance.StopMusic("FootStep");
-
-        }
-
-        Vector3 direction = new Vector3(x, rb.velocity.y, z).normalized;
-        if (direction.magnitude >= 0.1f)
-        {
-            float turnSmoothTime = 0.1f;
-            float turnSmoothVelocity = 0;
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + transform.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            rb.velocity = moveDir.normalized * moveSpeed;
-
-            anim.SetFloat("MoveSpeed", rb.velocity.magnitude);
-        }
-        else
-        {
-            rb.velocity = Vector3.zero;
-            anim.SetFloat("MoveSpeed", 0);
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        ContactPoint[] contactPoints = collision.contacts;
-        for (int i = 0; i < contactPoints.Length; i++)
-        {
-            if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f)
-            {
-                if (!m_collisions.Contains(collision.collider))
-                {
-                    m_collisions.Add(collision.collider);
-                }
-                m_isGrounded = true;
-            }
-        }
-
+        float z = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * x + transform.forward * z;
+        controller.Move(move * Time.deltaTime * moveSpeed);
+        anim.SetFloat("MoveSpeed", move.magnitude);
     }
     public void AddJumpForce(float amount)
     {
         jumpForce += amount;
     }
+
     public void AddSpeed(float amount)
     {
         moveSpeed += amount;

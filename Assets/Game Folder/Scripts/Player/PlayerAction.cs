@@ -98,27 +98,27 @@ public class PlayerAction : MonoBehaviour
         listSkillOfPlayer.Add(skill);
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (collision.gameObject.tag == "Finish")
+        if (hit.gameObject.tag == "Finish")
         {
             Actions.OnStateChange?.Invoke(GAMESTATE.GAMEOVER);
         }
-        if (collision.gameObject.tag == "Key")
+        if (hit.gameObject.tag == "Key")
         {
             Key++;
-            Destroy(collision.gameObject);
+            Destroy(hit.gameObject);
         }
-        if (collision.gameObject.tag == "ZebraCross")
+        if (hit.gameObject.tag == "ZebraCross")
         {
             zebraCross++;
         }
-        if (collision.gameObject.tag == "Bush")
+        if (hit.gameObject.tag == "Bush")
         {
             KnockBack();
         }
     }
-
     private async void KnockBack()
     {
         GetComponent<PlayerMovement>().enabled = false;
@@ -129,6 +129,10 @@ public class PlayerAction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Finish"))
+        {
+            Debug.Log("Finish");
+        }
         if (other.CompareTag("Water"))
         {
             waterHit++;
