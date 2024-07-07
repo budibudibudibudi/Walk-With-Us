@@ -116,14 +116,19 @@ public class PlayerAction : MonoBehaviour
         }
         if (hit.gameObject.tag == "Bush")
         {
-            KnockBack();
+            StartCoroutine(KnockBack());
         }
     }
-    private async void KnockBack()
+    IEnumerator KnockBack()
     {
         GetComponent<PlayerMovement>().enabled = false;
-        GetComponent<Rigidbody>().velocity = (-transform.forward) * 5;
-        await Task.Delay(1000);
+        float _timer = 1;
+        while (_timer>0)
+        {
+            GetComponent<CharacterController>().Move(-transform.forward *2*Time.deltaTime);
+            _timer -= Time.deltaTime;
+            yield return null;
+        }
         GetComponent<PlayerMovement>().enabled = true;
     }
 

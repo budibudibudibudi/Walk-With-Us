@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -45,7 +46,7 @@ public class PlayerInventory : MonoBehaviour
         Actions.RefreshInventory?.Invoke();
     }
 
-    private void AddObjectToInventory(GameObject obj)
+    private async void AddObjectToInventory(GameObject obj)
     {
         if (inventory.Count < inventorySlot)
         {
@@ -55,6 +56,9 @@ public class PlayerInventory : MonoBehaviour
             inventory.Add(obj);
             itemInInventory++;
             Actions.RefreshInventory?.Invoke();
+            GetComponent<PlayerMovement>().enabled = false;
+            await Task.Delay(700);
+            GetComponent<PlayerMovement>().enabled = true;
         }
     }
     public void AddInventorySlot(int amount)

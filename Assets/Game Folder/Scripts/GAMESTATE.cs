@@ -6,5 +6,6 @@ public enum GAMESTATE
     GAMEOVER,
     NEXTLEVEL,
     MENU,
-    LOSE
+    LOSE,
+    BACKTOMENU
 }

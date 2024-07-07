@@ -127,11 +127,11 @@ public class GameManager : MonoBehaviour
             case GAMESTATE.GAMEOVER:
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
-                Actions.ReportQuest(QuestID.Timer, (int)Timer); 
-                Actions.ReportQuest(QuestID.HitWater, Funcs.GetHitWater()); 
-                Actions.ReportQuest(QuestID.FindObject,Funcs.GetKeyCount());
-                Actions.ReportQuest(QuestID.ZebraCross, Funcs.GetZebraCrossWalk()); 
-                Actions.ReportQuest(QuestID.ClearTile, Funcs.GetTrashAmountInScene()); 
+                Actions.ReportQuest(QuestID.Timer, (int)Timer);
+                Actions.ReportQuest(QuestID.HitWater, Funcs.GetHitWater());
+                Actions.ReportQuest(QuestID.FindObject, Funcs.GetKeyCount());
+                Actions.ReportQuest(QuestID.ZebraCross, Funcs.GetZebraCrossWalk());
+                Actions.ReportQuest(QuestID.ClearTile, Funcs.GetTrashAmountInScene());
                 StarCalculation();
                 Actions.OnPageChange?.Invoke(PAGENAME.FINISHPAGE);
                 break;
@@ -148,6 +148,10 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
                 Funcs.GetLevelDatas()[currentLevel].ResetQuest();
                 Actions.OnPageChange?.Invoke(PAGENAME.FINISHPAGE);
+                break;
+            case GAMESTATE.BACKTOMENU:
+                AudioManager.instance.StopAllMusic();
+                SceneManager.LoadScene("MainMenu");
                 break;
         }
     }

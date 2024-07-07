@@ -11,6 +11,6 @@ public class PausePage : Page
     {
         resumeBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.PLAY));
         optionsBTN.onClick.AddListener(()=>Actions.OnPageChange?.Invoke(PAGENAME.OPTIONSPAGE));
-        exitBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.MENU));
+        exitBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.BACKTOMENU));
     }
 }
