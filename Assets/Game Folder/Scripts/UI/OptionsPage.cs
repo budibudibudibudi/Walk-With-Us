@@ -10,6 +10,8 @@ public class OptionsPage : Page
     protected override void Start()
     {
         base.Start();
+        musicSlider.value = AudioManager.instance.musicVolume;
+        sfxSlider.value = AudioManager.instance.sfxVolume;
         musicSlider.onValueChanged?.AddListener((value)=>AudioManager.instance.SetVolume(Audio.AudioType.music, value));
         sfxSlider.onValueChanged?.AddListener((value)=>AudioManager.instance.SetVolume(Audio.AudioType.soundEffect, value));
         backBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.MENUPAGE));

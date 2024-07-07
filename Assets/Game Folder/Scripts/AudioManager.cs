@@ -10,8 +10,8 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    private float musicVolume;
-    private float sfxVolume;
+    public float musicVolume;
+    public float sfxVolume;
 
     private void Awake()
     {
