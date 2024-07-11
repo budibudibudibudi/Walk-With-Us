@@ -656,6 +656,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 131587086528118140, guid: c1761bc95f3ae7440933a01afc154322, type: 3}
+      propertyPath: m_text
+      value: ' Bantu Tuhet melewati jalan perkotaan sesuai aturan'
+      objectReference: {fileID: 0}
     - target: {fileID: 849935196174418073, guid: c1761bc95f3ae7440933a01afc154322, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

@@ -150,8 +150,14 @@ public class GameManager : MonoBehaviour
                 Actions.OnPageChange?.Invoke(PAGENAME.FINISHPAGE);
                 break;
             case GAMESTATE.BACKTOMENU:
+                Cursor.lockState = CursorLockMode.None;
                 AudioManager.instance.StopAllMusic();
                 SceneManager.LoadScene("MainMenu");
+                break;
+            case GAMESTATE.WATERKILL:
+                Cursor.lockState = CursorLockMode.None;
+                Actions.OnPageChange?.Invoke(PAGENAME.FINISHPAGE);
+                Actions.FlashWarning?.Invoke("Hati hati dengan air!");
                 break;
         }
     }
@@ -216,7 +222,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private async void GotoLevel(int value)
+    public async void GotoLevel(int value)
     {
         currentLevel = value;
         AsyncOperation operation = SceneManager.LoadSceneAsync($"LV{currentLevel}");

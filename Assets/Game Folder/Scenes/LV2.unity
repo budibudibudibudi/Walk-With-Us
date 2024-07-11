@@ -4691,14 +4691,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Can_lemon prefab
       objectReference: {fileID: 0}
-    - target: {fileID: 1311080984089316, guid: af9d0903bfdf9c749ac85725af5631ec, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1783657320805196, guid: af9d0903bfdf9c749ac85725af5631ec, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 4441100831826320, guid: af9d0903bfdf9c749ac85725af5631ec, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4843,17 +4835,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 868478972}
     m_Modifications:
-    - target: {fileID: 1036057936651256, guid: 81d26dcff31f3ee45a7af58439d44b2e, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 1367660652193534, guid: 81d26dcff31f3ee45a7af58439d44b2e, type: 3}
       propertyPath: m_Name
       value: Can_cola 1 prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1367660652193534, guid: 81d26dcff31f3ee45a7af58439d44b2e, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4450026544068382, guid: 81d26dcff31f3ee45a7af58439d44b2e, type: 3}
       propertyPath: m_RootOrder
@@ -8374,6 +8358,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 131587086528118140, guid: c1761bc95f3ae7440933a01afc154322, type: 3}
+      propertyPath: m_text
+      value: Bantu Tuhet untuk melewati area perkebunan!
+      objectReference: {fileID: 0}
     - target: {fileID: 849935196174418073, guid: c1761bc95f3ae7440933a01afc154322, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

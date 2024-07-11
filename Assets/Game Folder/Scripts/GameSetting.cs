@@ -13,19 +13,20 @@ public class GameSetting : MonoBehaviour
     }
     private void OnEnable()
     {
-        Actions.ThrowGarbage += RefreshTrashAmount;
+        Actions.RefreshInventory += RefreshTrashAmount;
         Funcs.GetTrashAmountInScene += GetTrashAmount;
     }
 
     private void OnDisable()
     {
-        Actions.ThrowGarbage -= RefreshTrashAmount;
+        Actions.RefreshInventory -= RefreshTrashAmount;
         Funcs.GetTrashAmountInScene -= GetTrashAmount;
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (Funcs.GetGameState() == GAMESTATE.GAMEOVER || Funcs.GetGameState() == GAMESTATE.WATERKILL) return;
             if (Funcs.GetGameState() != GAMESTATE.PAUSE)
             {
                 Actions.OnStateChange?.Invoke(GAMESTATE.PAUSE);
@@ -44,6 +45,7 @@ public class GameSetting : MonoBehaviour
     private void RefreshTrashAmount()
     {
         trashAmount = GameObject.FindGameObjectsWithTag("Trash").Length;
+        Actions.OnTrashChange?.Invoke(trashAmount);
         Actions.ReportQuest?.Invoke(QuestID.ClearTile, trashAmount);
     }
 }

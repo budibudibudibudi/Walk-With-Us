@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class FinishPage : Page
 {
     [SerializeField] private Button nextBTN,levelBTN,retryBTN;
-    [SerializeField] private TMP_Text timerText,gameOverText;
+    [SerializeField] private TMP_Text timerText,gameOverText,warningText;
+    [SerializeField] private GameObject warningParent;
     [SerializeField] private Image[] starsHolder;
     [SerializeField] private Sprite starSprite,blackStarSprite;
 
@@ -38,10 +39,9 @@ public class FinishPage : Page
             });
         levelBTN.onClick.AddListener(() =>
         {
-            AudioManager.instance.StopAllMusic();
-            SceneManager.LoadScene("MainMenu");
+            Actions.OnStateChange?.Invoke(GAMESTATE.BACKTOMENU);
         });
-        retryBTN.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+        retryBTN.onClick.AddListener(() => GameManager.Instance.GotoLevel(currentLevel));
 
 
         timerText.text = Funcs.GetTimer().ToString("F2");
@@ -59,5 +59,19 @@ public class FinishPage : Page
                 continue;
             }
         }
+    }
+    private void OnEnable()
+    {
+        Actions.FlashWarning += ShowWarn;
+    }
+    private void OnDisable()
+    {
+        Actions.FlashWarning -= ShowWarn;
+    }
+
+    private void ShowWarn(string obj)
+    {
+        warningParent.SetActive(true);
+        warningText.text = obj;
     }
 }

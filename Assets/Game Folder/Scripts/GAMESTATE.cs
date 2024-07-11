@@ -7,5 +7,6 @@ public enum GAMESTATE
     NEXTLEVEL,
     MENU,
     LOSE,
-    BACKTOMENU
+    BACKTOMENU,
+    WATERKILL
 }

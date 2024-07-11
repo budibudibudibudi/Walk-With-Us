@@ -7,7 +7,7 @@ public class PausePage : Page
 {
     [SerializeField] private Button resumeBTN, optionsBTN, exitBTN;
 
-    private void Start()
+    protected override void Start()
     {
         resumeBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.PLAY));
         optionsBTN.onClick.AddListener(()=>Actions.OnPageChange?.Invoke(PAGENAME.OPTIONSPAGE));

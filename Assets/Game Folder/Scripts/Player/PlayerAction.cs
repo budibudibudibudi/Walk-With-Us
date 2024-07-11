@@ -116,7 +116,7 @@ public class PlayerAction : MonoBehaviour
         }
         if (hit.gameObject.tag == "Bush")
         {
-            StartCoroutine(KnockBack());
+            //StartCoroutine(KnockBack());
         }
     }
     IEnumerator KnockBack()
@@ -144,7 +144,8 @@ public class PlayerAction : MonoBehaviour
         }
         if (other.CompareTag("Waterkill"))
         {
-            Actions.OnStateChange?.Invoke(GAMESTATE.LOSE);
+            Actions.OnStateChange?.Invoke(GAMESTATE.WATERKILL);
+            Camera.main.transform.SetParent(null);
             gameObject.SetActive(false);
         }
     }
