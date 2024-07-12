@@ -17,4 +17,5 @@ public static class Actions
     public static Action SaveSkillsPlayer;
     public static Action<int> OnTrashChange;
     public static Action<string> FlashWarning;
+    public static Action LoadLevelDatas;
 }

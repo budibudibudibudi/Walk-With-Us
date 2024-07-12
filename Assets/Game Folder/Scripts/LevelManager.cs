@@ -11,9 +11,13 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        LoadLevelData();
+    }
+    void LoadLevelData()
+    {
         List<SavedLevelData> savedLevelDatas = GameManager.Instance.LoadListLevelData();
         if (savedLevelDatas == null) return;
-        if (savedLevelDatas.Count > 0||savedLevelDatas != null)
+        if (savedLevelDatas.Count > 0 || savedLevelDatas != null)
         {
             foreach (var item in savedLevelDatas)
             {
@@ -36,7 +40,7 @@ public class LevelManager : MonoBehaviour
                     levelDatas[next].isUnlocked = true;
 
                 }
-                catch 
+                catch
                 {
                     break;
                 }
@@ -70,7 +74,7 @@ public class LevelManager : MonoBehaviour
         switch (gAMESTATE)
         {
             case GAMESTATE.PLAY:
-                LevelData levelData = Array.Find(levelDatas,l=>l.level == Funcs.GetCurrentLevel());
+                LevelData levelData = Array.Find(levelDatas, l => l.level == Funcs.GetCurrentLevel());
                 levelData.completedStar = 0;
                 levelData.ResetQuest();
                 foreach (var item in levelData.listQuest)
@@ -87,6 +91,13 @@ public class LevelManager : MonoBehaviour
             case GAMESTATE.NEXTLEVEL:
                 break;
             case GAMESTATE.MENU:
+                break;
+            case GAMESTATE.LOSE:
+                break;
+            case GAMESTATE.BACKTOMENU:
+                LoadLevelData();
+                break;
+            case GAMESTATE.WATERKILL:
                 break;
             default:
                 break;
