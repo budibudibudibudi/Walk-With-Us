@@ -44,7 +44,9 @@ public class FinishPage : Page
         retryBTN.onClick.AddListener(() => GameManager.Instance.GotoLevel(currentLevel));
 
 
-        timerText.text = Funcs.GetTimer().ToString("F2");
+        string minutes = ((int)Funcs.GetTimer() / 60).ToString("00");
+        string seconds = (Funcs.GetTimer() % 60).ToString("00");
+        timerText.text = minutes + ":" + seconds;
         gameOverText.text = Funcs.GetGameState() == GAMESTATE.GAMEOVER ? "You Win" : "You Lose";
 
         for (int i = 0; i < star; i++)

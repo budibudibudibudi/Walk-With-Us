@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         return levelData.listSkill;
     }
 
-    private void OnStateChange(GAMESTATE gAMESTATE)
+    private async void OnStateChange(GAMESTATE gAMESTATE)
     {
         currentState = gAMESTATE;
         switch (currentState)
@@ -84,6 +84,8 @@ public class GameManager : MonoBehaviour
                 Actions.OnPageChange?.Invoke(PAGENAME.PAUSEPAGE);
                 break;
             case GAMESTATE.BUFFING:
+                Time.timeScale = 1;
+                await Task.Delay(2000);
                 Cursor.lockState = CursorLockMode.None;
                 bool openBuff = false;
                 List<string> listskill = JsonHelper.ReadListFromJSON<string>("Player Skill List");
@@ -136,6 +138,7 @@ public class GameManager : MonoBehaviour
                 Actions.OnPageChange?.Invoke(PAGENAME.FINISHPAGE);
                 break;
             case GAMESTATE.NEXTLEVEL:
+                Time.timeScale = 1;
                 currentLevel++;
                 GotoLevel(currentLevel);
                 break;
