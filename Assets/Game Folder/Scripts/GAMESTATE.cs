@@ -8,5 +8,6 @@ public enum GAMESTATE
     MENU,
     LOSE,
     BACKTOMENU,
-    WATERKILL
+    WATERKILL,
+    UNPAUSE,
 }

@@ -33,7 +33,7 @@ public class GameSetting : MonoBehaviour
             }
             else
             {
-                Actions.OnStateChange?.Invoke(GAMESTATE.PLAY);
+                Actions.OnStateChange?.Invoke(GAMESTATE.UNPAUSE);
             }
         }
     }

@@ -9,7 +9,7 @@ public class PausePage : Page
 
     protected override void Start()
     {
-        resumeBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.PLAY));
+        resumeBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.UNPAUSE));
         optionsBTN.onClick.AddListener(()=>Actions.OnPageChange?.Invoke(PAGENAME.OPTIONSPAGE));
         exitBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.BACKTOMENU));
     }

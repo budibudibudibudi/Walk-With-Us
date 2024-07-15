@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -69,11 +69,11 @@ public class GameManager : MonoBehaviour
         switch (currentState)
         {
             case GAMESTATE.PLAY:
+                Time.timeScale = 1;
                 AudioManager.instance.StopAllMusic();
                 AudioManager.instance.PlayMusic("Game");
                 Timer = 0;
                 StartCoroutine(StartTimer());
-                Time.timeScale = 1;
                 Cursor.lockState = CursorLockMode.Locked;
                 Actions.OnPageChange?.Invoke(PAGENAME.GAMEPAGE);
 
@@ -82,6 +82,13 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
                 Actions.OnPageChange?.Invoke(PAGENAME.PAUSEPAGE);
+                break;            
+            case GAMESTATE.UNPAUSE:
+                Time.timeScale = 1;
+                Cursor.lockState = CursorLockMode.Locked;
+                currentState = GAMESTATE.PLAY;
+                StartCoroutine(StartTimer());
+                Actions.OnPageChange?.Invoke(PAGENAME.GAMEPAGE);
                 break;
             case GAMESTATE.BUFFING:
                 Time.timeScale = 1;
@@ -115,11 +122,13 @@ public class GameManager : MonoBehaviour
                 {
 
                     Actions.OnPageChange?.Invoke(PAGENAME.BUFFCARDSPAGE);
+                    Debug.Log("Popup pertama");
                     return;
                 }
                 if (openBuff)
                 {
                     Actions.OnPageChange?.Invoke(PAGENAME.BUFFCARDSPAGE);
+                    Debug.Log("Popup kedua");
                 }
                 else
                 {

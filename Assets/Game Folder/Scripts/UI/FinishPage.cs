@@ -18,13 +18,23 @@ public class FinishPage : Page
     {
         int star = Funcs.GetCompletedStar();
         int currentLevel = Funcs.GetCurrentLevel.Invoke();
+
+
+        if (Funcs.GetGameState() == GAMESTATE.WATERKILL)
+        {
+            nextBTN.gameObject.SetActive(false);
+            star = 0;
+        }
+
         if (star <=0)
         {
+            Debug.Log("Finish");
             AudioManager.instance.PlayMusic("Failure");
             nextBTN.gameObject.SetActive(false);
         }
         else
         {
+            Debug.Log("Finish, dengan total bintang " + star);
             AudioManager.instance.PlayMusic("Finish");
             nextBTN.gameObject.SetActive(true);
         }

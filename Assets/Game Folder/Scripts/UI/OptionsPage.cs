@@ -12,9 +12,10 @@ public class OptionsPage : Page
         base.Start();
         musicSlider.value = AudioManager.instance.musicVolume;
         sfxSlider.value = AudioManager.instance.sfxVolume;
-        musicSlider.onValueChanged?.AddListener((value)=>AudioManager.instance.SetVolume(Audio.AudioType.music, value));
-        sfxSlider.onValueChanged?.AddListener((value)=>AudioManager.instance.SetVolume(Audio.AudioType.soundEffect, value));
-        backBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.MENUPAGE));
+        musicSlider.onValueChanged?.AddListener((value) => AudioManager.instance.SetVolume(Audio.AudioType.music, value));
+        sfxSlider.onValueChanged?.AddListener((value) => AudioManager.instance.SetVolume(Audio.AudioType.soundEffect, value));
+        backBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.UNPAUSE));
+    
         creditBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.CREDITPAGE));
     }
 }
