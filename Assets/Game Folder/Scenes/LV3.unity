@@ -472,6 +472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tuhet
       objectReference: {fileID: 0}
+    - target: {fileID: 4865882506487852290, guid: e833a6520e3ee094ba6debe97ee51955, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5245786432140654520, guid: e833a6520e3ee094ba6debe97ee51955, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -20499,7 +20503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 192287502070140873, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -1701.1259
       objectReference: {fileID: 0}
     - target: {fileID: 192287502070140874, guid: f533e563b430f014486fe2d7de014162, type: 3}
       propertyPath: m_Spacing
@@ -20725,7 +20729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &849935195886025682
 MonoBehaviour:
   m_ObjectHideFlags: 0
