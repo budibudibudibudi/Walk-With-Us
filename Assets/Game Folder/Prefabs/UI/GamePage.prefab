@@ -324,8 +324,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4288999158
+  m_fontColor: {r: 0.9647059, g: 0.93333334, b: 0.6431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -521,8 +521,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4288999158
+  m_fontColor: {r: 0.9647059, g: 0.93333334, b: 0.6431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -723,6 +723,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3171758001332276844}
     m_Modifications:
+    - target: {fileID: 151064157, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139298921754259598, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139298921754259598, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139298921754259598, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139298921754259598, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139298921754259598, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7519291112725499236, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
       propertyPath: m_Name
       value: QuestPanel
@@ -810,6 +834,22 @@ PrefabInstance:
     - target: {fileID: 7519291112725499243, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519291113364228732, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519291113364228732, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519291113364228733, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -93
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519291114353840575, guid: 14089ac518296de40af85d4cbd90202c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 308
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14089ac518296de40af85d4cbd90202c, type: 3}

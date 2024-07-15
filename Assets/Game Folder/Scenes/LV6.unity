@@ -132,11 +132,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 675725991, guid: e833a6520e3ee094ba6debe97ee51955, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.28809
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 675725991, guid: e833a6520e3ee094ba6debe97ee51955, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.337609
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 675725991, guid: e833a6520e3ee094ba6debe97ee51955, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9975641
+      objectReference: {fileID: 0}
+    - target: {fileID: 675725991, guid: e833a6520e3ee094ba6debe97ee51955, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.06975647
+      objectReference: {fileID: 0}
+    - target: {fileID: 675725991, guid: e833a6520e3ee094ba6debe97ee51955, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4865882506487852290, guid: e833a6520e3ee094ba6debe97ee51955, type: 3}
       propertyPath: m_Name
@@ -14177,6 +14189,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 598085948}
     m_Modifications:
+    - target: {fileID: 266462310, guid: 8205d36f5448674429e263cd4800fd0a, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 266462310, guid: 8205d36f5448674429e263cd4800fd0a, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 266462310, guid: 8205d36f5448674429e263cd4800fd0a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4373080667063482954, guid: 8205d36f5448674429e263cd4800fd0a, type: 3}
       propertyPath: m_Name
       value: Water
