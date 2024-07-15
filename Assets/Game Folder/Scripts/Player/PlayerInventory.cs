@@ -63,7 +63,7 @@ public class PlayerInventory : MonoBehaviour
     }
     public void AddInventorySlot(int amount)
     {
-        inventorySlot += amount;
+        Mathf.Clamp(inventorySlot += amount, 0, 5);
         Actions.RefreshInventory?.Invoke();
     }
 }
