@@ -160,6 +160,7 @@ public class GameManager : MonoBehaviour
                 Actions.OnPageChange?.Invoke(PAGENAME.FINISHPAGE);
                 break;
             case GAMESTATE.BACKTOMENU:
+                Time.timeScale = 1;
                 Cursor.lockState = CursorLockMode.None;
                 AudioManager.instance.StopAllMusic();
                 SceneManager.LoadScene("MainMenu");

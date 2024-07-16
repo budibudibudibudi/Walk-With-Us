@@ -7,6 +7,7 @@ public class OptionsPage : Page
 {
     [SerializeField] private Slider musicSlider, sfxSlider;
     [SerializeField] Button backBTN,creditBTN;
+    public bool isMenu;
     protected override void Start()
     {
         base.Start();
@@ -14,7 +15,12 @@ public class OptionsPage : Page
         sfxSlider.value = AudioManager.instance.sfxVolume;
         musicSlider.onValueChanged?.AddListener((value) => AudioManager.instance.SetVolume(Audio.AudioType.music, value));
         sfxSlider.onValueChanged?.AddListener((value) => AudioManager.instance.SetVolume(Audio.AudioType.soundEffect, value));
-        backBTN.onClick.AddListener(() => Actions.OnStateChange?.Invoke(GAMESTATE.UNPAUSE));
+        backBTN.onClick.AddListener(() => {
+            if (isMenu)
+                Actions.OnPageChange?.Invoke(PAGENAME.MENUPAGE);
+            else
+                Actions.OnStateChange?.Invoke(GAMESTATE.UNPAUSE);
+            });
     
         creditBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.CREDITPAGE));
     }

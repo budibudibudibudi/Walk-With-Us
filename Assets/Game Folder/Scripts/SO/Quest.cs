@@ -56,7 +56,7 @@ public class Quest:ScriptableObject
                         }
                         break;
                     case QuestID.HitWater:
-                        if (value < subQuest.amount)
+                        if (value <= subQuest.amount)
                         {
                             subQuest.Complete = true;
                         }

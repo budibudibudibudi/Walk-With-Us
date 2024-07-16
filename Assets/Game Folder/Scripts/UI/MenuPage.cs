@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MenuPage : Page
 {
-    [SerializeField] private Button playBTN,settingBTN,levelBTN,exitBTN;
+    [SerializeField] private Button playBTN,settingBTN,levelBTN,exitBTN,creditBTN;
     protected override void Start()
     {
         AudioManager.instance.StopAllMusic();
@@ -15,5 +15,6 @@ public class MenuPage : Page
         settingBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.OPTIONSPAGE));
         levelBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.LEVELPAGE));
         exitBTN.onClick.AddListener(()=>Application.Quit());
+        creditBTN.onClick.AddListener(() => Actions.OnPageChange?.Invoke(PAGENAME.CREDITPAGE));
     }
 }
