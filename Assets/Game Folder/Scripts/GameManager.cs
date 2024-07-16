@@ -122,13 +122,11 @@ public class GameManager : MonoBehaviour
                 {
 
                     Actions.OnPageChange?.Invoke(PAGENAME.BUFFCARDSPAGE);
-                    Debug.Log("Popup pertama");
                     return;
                 }
                 if (openBuff)
                 {
                     Actions.OnPageChange?.Invoke(PAGENAME.BUFFCARDSPAGE);
-                    Debug.Log("Popup kedua");
                 }
                 else
                 {
